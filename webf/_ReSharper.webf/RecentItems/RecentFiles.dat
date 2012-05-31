@@ -2,13 +2,15 @@
   <RecentFiles>
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:Home/f:Index.cshtml" caret="236" fromTop="10" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:Home/f:List.cshtml" caret="156" fromTop="9" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:HomeController.cs" caret="777" fromTop="33" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/f:KeyBundleGenerator.cs" caret="241" fromTop="12" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/f:Days.cs" caret="840" fromTop="26" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/f:AccountModels.cs" caret="326" fromTop="0" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:Account/f:Register.cshtml" caret="0" fromTop="0" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:AccountController.cs" caret="2335" fromTop="20" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Web.config" caret="2297" fromTop="31" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Web.config" caret="1081" fromTop="14" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:HomeController.cs" caret="1131" fromTop="22" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:Home/f:UserRegistrationBlank.cshtml" caret="1489" fromTop="8" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/f:UserProfile.cs" caret="0" fromTop="0" />
   </RecentFiles>
   <RecentEdits>
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:HomeController.cs" caret="208" fromTop="8" />
@@ -24,5 +26,13 @@
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:HomeController.cs" caret="786" fromTop="33" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/f:KeyBundleGenerator.cs" caret="229" fromTop="10" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:AccountController.cs" caret="2335" fromTop="20" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Web.config" caret="5104" fromTop="13" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Web.config" caret="5104" fromTop="15" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Web.config" caret="5104" fromTop="20" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Web.config" caret="1637" fromTop="19" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Web.config" caret="1571" fromTop="18" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Web.config" caret="440" fromTop="5" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Web.config" caret="1043" fromTop="11" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:Home/f:UserRegistrationBlank.cshtml" caret="1446" fromTop="8" />
   </RecentEdits>
 </RecentFiles>

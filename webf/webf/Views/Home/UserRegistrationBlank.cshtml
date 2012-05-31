@@ -45,7 +45,7 @@
 <h2>
     Регистрация нового пользователя</h2>
 
-@using (Html.BeginForm("UserRegistrationBlank", "Home", new {  enctype = "multipart/form-data" }))
+@using (Html.BeginForm("UserRegistrationBlank", "Home", FormMethod.Post, new {  enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
     <fieldset>

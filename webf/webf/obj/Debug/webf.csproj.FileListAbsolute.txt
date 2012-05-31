@@ -9,3 +9,12 @@ C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\ob
 C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\obj\Debug\GenerateResource.read.1.tlog
 C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\obj\Debug\webf.App_GlobalResources.ErrorStrings.resources
+D:\repo\webf\webf\webf\bin\webf.dll
+D:\repo\webf\webf\webf\bin\webf.pdb
+D:\repo\webf\webf\webf\obj\Debug\ResolveAssemblyReference.cache
+D:\repo\webf\webf\webf\obj\Debug\webf.App_GlobalResources.ErrorStrings.resources
+D:\repo\webf\webf\webf\obj\Debug\webf.Properties.Resources.resources
+D:\repo\webf\webf\webf\obj\Debug\GenerateResource.read.1.tlog
+D:\repo\webf\webf\webf\obj\Debug\GenerateResource.write.1.tlog
+D:\repo\webf\webf\webf\obj\Debug\webf.dll
+D:\repo\webf\webf\webf\obj\Debug\webf.pdb
