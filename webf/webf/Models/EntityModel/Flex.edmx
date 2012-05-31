@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FlexDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="FlexDBModelStoreContainer">
+          <EntitySet Name="aspnet_Users" EntityType="FlexDBModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contacts" EntityType="FlexDBModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KeyTable" EntityType="FlexDBModel.Store.KeyTable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KeyType" EntityType="FlexDBModel.Store.KeyType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PrivKeyStorage" EntityType="FlexDBModel.Store.PrivKeyStorage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PubKeyStorage" EntityType="FlexDBModel.Store.PubKeyStorage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfile" EntityType="FlexDBModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_KeyTable_KeyType" Association="FlexDBModel.Store.FK_KeyTable_KeyType">
+            <End Role="KeyType" EntitySet="KeyType" />
+            <End Role="KeyTable" EntitySet="KeyTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KeyTable_PrivKeyStorage" Association="FlexDBModel.Store.FK_KeyTable_PrivKeyStorage">
+            <End Role="PrivKeyStorage" EntitySet="PrivKeyStorage" />
+            <End Role="KeyTable" EntitySet="KeyTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KeyTable_PubKeyStorage" Association="FlexDBModel.Store.FK_KeyTable_PubKeyStorage">
+            <End Role="PubKeyStorage" EntitySet="PubKeyStorage" />
+            <End Role="KeyTable" EntitySet="KeyTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_aspnet_Users" Association="FlexDBModel.Store.FK_UserProfile_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_Contacts" Association="FlexDBModel.Store.FK_UserProfile_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_KeyTable" Association="FlexDBModel.Store.FK_UserProfile_KeyTable">
+            <End Role="KeyTable" EntitySet="KeyTable" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PhoneNumHome" Type="nvarchar" MaxLength="70" />
+          <Property Name="PhoneNumMobile" Type="nvarchar" MaxLength="70" />
+          <Property Name="PhoneNumWorkOS" Type="nvarchar" MaxLength="70" />
+          <Property Name="PhoneNumWorkGTS" Type="nvarchar" MaxLength="70" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KeyTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="KeyType" Type="int" Nullable="false" />
+          <Property Name="HostIdentity" Type="nvarchar" MaxLength="100" />
+          <Property Name="PubKeyID" Type="int" />
+          <Property Name="PrivKeyID" Type="int" />
+        </EntityType>
+        <EntityType Name="KeyType">
+          <Key>
+            <PropertyRef Name="KeyTypeId" />
+          </Key>
+          <Property Name="KeyTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="PrivKeyStorage">
+          <Key>
+            <PropertyRef Name="PrivKeyId" />
+          </Key>
+          <Property Name="PrivKeyId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="KeyBody" Type="varbinary(max)" />
+          <Property Name="GenerationDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PubKeyStorage">
+          <Key>
+            <PropertyRef Name="PubKeyId" />
+          </Key>
+          <Property Name="PubKeyId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="KeyBody" Type="varchar(max)" />
+          <Property Name="GenerationDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserProfileID" />
+          </Key>
+          <Property Name="UserProfileID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="150" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ParentName" Type="nvarchar" MaxLength="150" />
+          <Property Name="DegreeID" Type="int" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="ContactID" Type="int" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="Post" Type="nvarchar" MaxLength="300" />
+          <Property Name="LoginID" Type="uniqueidentifier" />
+          <Property Name="KeyID" Type="int" />
+        </EntityType>
+        <Association Name="FK_KeyTable_KeyType">
+          <End Role="KeyType" Type="FlexDBModel.Store.KeyType" Multiplicity="1" />
+          <End Role="KeyTable" Type="FlexDBModel.Store.KeyTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KeyType">
+              <PropertyRef Name="KeyTypeId" />
+            </Principal>
+            <Dependent Role="KeyTable">
+              <PropertyRef Name="KeyType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KeyTable_PrivKeyStorage">
+          <End Role="PrivKeyStorage" Type="FlexDBModel.Store.PrivKeyStorage" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KeyTable" Type="FlexDBModel.Store.KeyTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrivKeyStorage">
+              <PropertyRef Name="PrivKeyId" />
+            </Principal>
+            <Dependent Role="KeyTable">
+              <PropertyRef Name="PrivKeyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KeyTable_PubKeyStorage">
+          <End Role="PubKeyStorage" Type="FlexDBModel.Store.PubKeyStorage" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KeyTable" Type="FlexDBModel.Store.KeyTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PubKeyStorage">
+              <PropertyRef Name="PubKeyId" />
+            </Principal>
+            <Dependent Role="KeyTable">
+              <PropertyRef Name="PubKeyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_aspnet_Users">
+          <End Role="aspnet_Users" Type="FlexDBModel.Store.aspnet_Users" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_Contacts">
+          <End Role="Contacts" Type="FlexDBModel.Store.Contacts" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_KeyTable">
+          <End Role="KeyTable" Type="FlexDBModel.Store.KeyTable" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KeyTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="KeyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FlexDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="FlexDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aspnet_Users" EntityType="FlexDBModel.aspnet_Users" />
+          <EntitySet Name="Contacts" EntityType="FlexDBModel.Contacts" />
+          <EntitySet Name="KeyTable" EntityType="FlexDBModel.KeyTable" />
+          <EntitySet Name="KeyType" EntityType="FlexDBModel.KeyType" />
+          <EntitySet Name="PrivKeyStorage" EntityType="FlexDBModel.PrivKeyStorage" />
+          <EntitySet Name="PubKeyStorage" EntityType="FlexDBModel.PubKeyStorage" />
+          <EntitySet Name="UserProfile" EntityType="FlexDBModel.UserProfile" />
+          <AssociationSet Name="FK_UserProfile_aspnet_Users" Association="FlexDBModel.FK_UserProfile_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_Contacts" Association="FlexDBModel.FK_UserProfile_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KeyTable_KeyType" Association="FlexDBModel.FK_KeyTable_KeyType">
+            <End Role="KeyType" EntitySet="KeyType" />
+            <End Role="KeyTable" EntitySet="KeyTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KeyTable_PrivKeyStorage" Association="FlexDBModel.FK_KeyTable_PrivKeyStorage">
+            <End Role="PrivKeyStorage" EntitySet="PrivKeyStorage" />
+            <End Role="KeyTable" EntitySet="KeyTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KeyTable_PubKeyStorage" Association="FlexDBModel.FK_KeyTable_PubKeyStorage">
+            <End Role="PubKeyStorage" EntitySet="PubKeyStorage" />
+            <End Role="KeyTable" EntitySet="KeyTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_KeyTable" Association="FlexDBModel.FK_UserProfile_KeyTable">
+            <End Role="KeyTable" EntitySet="KeyTable" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="MobileAlias" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_aspnet_Users" FromRole="aspnet_Users" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhoneNumHome" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+          <Property Name="PhoneNumMobile" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+          <Property Name="PhoneNumWorkOS" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+          <Property Name="PhoneNumWorkGTS" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_Contacts" FromRole="Contacts" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="KeyTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KeyType" Type="Int32" Nullable="false" />
+          <Property Name="HostIdentity" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="PubKeyID" Type="Int32" />
+          <Property Name="PrivKeyID" Type="Int32" />
+          <NavigationProperty Name="KeyType1" Relationship="FlexDBModel.FK_KeyTable_KeyType" FromRole="KeyTable" ToRole="KeyType" />
+          <NavigationProperty Name="PrivKeyStorage" Relationship="FlexDBModel.FK_KeyTable_PrivKeyStorage" FromRole="KeyTable" ToRole="PrivKeyStorage" />
+          <NavigationProperty Name="PubKeyStorage" Relationship="FlexDBModel.FK_KeyTable_PubKeyStorage" FromRole="KeyTable" ToRole="PubKeyStorage" />
+          <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_KeyTable" FromRole="KeyTable" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="KeyType">
+          <Key>
+            <PropertyRef Name="KeyTypeId" />
+          </Key>
+          <Property Name="KeyTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="KeyTable" Relationship="FlexDBModel.FK_KeyTable_KeyType" FromRole="KeyType" ToRole="KeyTable" />
+        </EntityType>
+        <EntityType Name="PrivKeyStorage">
+          <Key>
+            <PropertyRef Name="PrivKeyId" />
+          </Key>
+          <Property Name="PrivKeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KeyBody" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="GenerationDateTime" Type="DateTime" />
+          <NavigationProperty Name="KeyTable" Relationship="FlexDBModel.FK_KeyTable_PrivKeyStorage" FromRole="PrivKeyStorage" ToRole="KeyTable" />
+        </EntityType>
+        <EntityType Name="PubKeyStorage">
+          <Key>
+            <PropertyRef Name="PubKeyId" />
+          </Key>
+          <Property Name="PubKeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KeyBody" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="GenerationDateTime" Type="DateTime" />
+          <NavigationProperty Name="KeyTable" Relationship="FlexDBModel.FK_KeyTable_PubKeyStorage" FromRole="PubKeyStorage" ToRole="KeyTable" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserProfileID" />
+          </Key>
+          <Property Name="UserProfileID" Type="Guid" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="FirstName" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="ParentName" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="DegreeID" Type="Int32" />
+          <Property Name="DateOfBirth" Type="DateTime" />
+          <Property Name="ContactID" Type="Int32" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Post" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="LoginID" Type="Guid" />
+          <Property Name="KeyID" Type="Int32" />
+          <NavigationProperty Name="aspnet_Users" Relationship="FlexDBModel.FK_UserProfile_aspnet_Users" FromRole="UserProfile" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Contacts" Relationship="FlexDBModel.FK_UserProfile_Contacts" FromRole="UserProfile" ToRole="Contacts" />
+          <NavigationProperty Name="KeyTable" Relationship="FlexDBModel.FK_UserProfile_KeyTable" FromRole="UserProfile" ToRole="KeyTable" />
+        </EntityType>
+        <Association Name="FK_UserProfile_aspnet_Users">
+          <End Role="aspnet_Users" Type="FlexDBModel.aspnet_Users" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="FlexDBModel.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_Contacts">
+          <End Role="Contacts" Type="FlexDBModel.Contacts" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="FlexDBModel.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KeyTable_KeyType">
+          <End Role="KeyType" Type="FlexDBModel.KeyType" Multiplicity="1" />
+          <End Role="KeyTable" Type="FlexDBModel.KeyTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KeyType">
+              <PropertyRef Name="KeyTypeId" />
+            </Principal>
+            <Dependent Role="KeyTable">
+              <PropertyRef Name="KeyType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KeyTable_PrivKeyStorage">
+          <End Role="PrivKeyStorage" Type="FlexDBModel.PrivKeyStorage" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KeyTable" Type="FlexDBModel.KeyTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrivKeyStorage">
+              <PropertyRef Name="PrivKeyId" />
+            </Principal>
+            <Dependent Role="KeyTable">
+              <PropertyRef Name="PrivKeyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KeyTable_PubKeyStorage">
+          <End Role="PubKeyStorage" Type="FlexDBModel.PubKeyStorage" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KeyTable" Type="FlexDBModel.KeyTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PubKeyStorage">
+              <PropertyRef Name="PubKeyId" />
+            </Principal>
+            <Dependent Role="KeyTable">
+              <PropertyRef Name="PubKeyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_KeyTable">
+          <End Role="KeyTable" Type="FlexDBModel.KeyTable" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="FlexDBModel.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KeyTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="KeyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FlexDBModelStoreContainer" CdmEntityContainer="FlexDBEntities">
+          <EntitySetMapping Name="aspnet_Users"><EntityTypeMapping TypeName="FlexDBModel.aspnet_Users"><MappingFragment StoreEntitySet="aspnet_Users">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+            <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+            <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+            <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Contacts"><EntityTypeMapping TypeName="FlexDBModel.Contacts"><MappingFragment StoreEntitySet="Contacts">
+            <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+            <ScalarProperty Name="PhoneNumHome" ColumnName="PhoneNumHome" />
+            <ScalarProperty Name="PhoneNumMobile" ColumnName="PhoneNumMobile" />
+            <ScalarProperty Name="PhoneNumWorkOS" ColumnName="PhoneNumWorkOS" />
+            <ScalarProperty Name="PhoneNumWorkGTS" ColumnName="PhoneNumWorkGTS" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="KeyTable"><EntityTypeMapping TypeName="FlexDBModel.KeyTable"><MappingFragment StoreEntitySet="KeyTable">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="KeyType" ColumnName="KeyType" />
+            <ScalarProperty Name="HostIdentity" ColumnName="HostIdentity" />
+            <ScalarProperty Name="PubKeyID" ColumnName="PubKeyID" />
+            <ScalarProperty Name="PrivKeyID" ColumnName="PrivKeyID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="KeyType"><EntityTypeMapping TypeName="FlexDBModel.KeyType"><MappingFragment StoreEntitySet="KeyType">
+            <ScalarProperty Name="KeyTypeId" ColumnName="KeyTypeId" />
+            <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PrivKeyStorage"><EntityTypeMapping TypeName="FlexDBModel.PrivKeyStorage"><MappingFragment StoreEntitySet="PrivKeyStorage">
+            <ScalarProperty Name="PrivKeyId" ColumnName="PrivKeyId" />
+            <ScalarProperty Name="KeyBody" ColumnName="KeyBody" />
+            <ScalarProperty Name="GenerationDateTime" ColumnName="GenerationDateTime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PubKeyStorage"><EntityTypeMapping TypeName="FlexDBModel.PubKeyStorage"><MappingFragment StoreEntitySet="PubKeyStorage">
+            <ScalarProperty Name="PubKeyId" ColumnName="PubKeyId" />
+            <ScalarProperty Name="KeyBody" ColumnName="KeyBody" />
+            <ScalarProperty Name="GenerationDateTime" ColumnName="GenerationDateTime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UserProfile"><EntityTypeMapping TypeName="FlexDBModel.UserProfile"><MappingFragment StoreEntitySet="UserProfile">
+            <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+            <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+            <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+            <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+            <ScalarProperty Name="Photo" ColumnName="Photo" />
+            <ScalarProperty Name="Post" ColumnName="Post" />
+            <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+            <ScalarProperty Name="KeyID" ColumnName="KeyID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Flex">
+        <EntityTypeShape EntityType="FlexDBModel.aspnet_Users" Width="1.5" PointX="3" PointY="6.125" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlexDBModel.Contacts" Width="1.5" PointX="3" PointY="9.5" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlexDBModel.KeyTable" Width="1.5" PointX="3" PointY="1.5" Height="2.7494921874999991" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlexDBModel.KeyType" Width="1.5" PointX="0.75" PointY="2.125" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlexDBModel.PrivKeyStorage" Width="1.5" PointX="0.75" PointY="5.375" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlexDBModel.PubKeyStorage" Width="1.5" PointX="0.75" PointY="8" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlexDBModel.UserProfile" Width="1.5" PointX="5.25" PointY="1" Height="3.7109993489583317" IsExpanded="true" />
+        <AssociationConnector Association="FlexDBModel.FK_UserProfile_aspnet_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.4035953776041667" />
+          <ConnectorPoint PointX="5.5104141666666671" PointY="7.4035953776041659" />
+          <ConnectorPoint PointX="5.6770808333333331" PointY="7.4035953776041667" />
+          <ConnectorPoint PointX="6" PointY="7.4035953776041667" />
+          <ConnectorPoint PointX="6" PointY="4.7109993489583317" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.FK_UserProfile_Contacts" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="10.682444661458334" />
+          <ConnectorPoint PointX="5.5937475" PointY="10.682444661458334" />
+          <ConnectorPoint PointX="5.5937475" PointY="4.7109993489583317" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.FK_KeyTable_KeyType" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.922841796875" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="2.9228417968749993" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="2.922841796875" />
+          <ConnectorPoint PointX="3" PointY="2.922841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.FK_KeyTable_PrivKeyStorage" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.375" />
+          <ConnectorPoint PointX="2.625" PointY="5" />
+          <ConnectorPoint PointX="2.625" PointY="2.1801688984374992" />
+          <ConnectorPoint PointX="3" PointY="2.1801688984374992" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.FK_KeyTable_PubKeyStorage" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.06346053846154" />
+          <ConnectorPoint PointX="2.8125" PointY="7.5009605384615394" />
+          <ConnectorPoint PointX="2.8125" PointY="3.6174189921875004" />
+          <ConnectorPoint PointX="3" PointY="3.6174189921875004" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.FK_UserProfile_KeyTable" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.87474609375" />
+          <ConnectorPoint PointX="5.25" PointY="2.87474609375" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
