@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Objects.DataClasses;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using webf.Models;
@@ -39,19 +43,7 @@ namespace webf.Controllers
             return View();
         }
 
-        public ActionResult UserRegistrationBlank()
-        {
-            RegForm _blank = new RegForm();
-            ViewData.Model = _blank;
-            return View();
-        }
-        [HttpPost]
-        public ActionResult UserRegistrationBlank(RegForm obj)
-        {
-            RegForm _blank = new RegForm();
-            ViewData.Model = _blank;
-            return View();
-        }
+        
         /*public ActionResult KeyGen()
         {
             return View();

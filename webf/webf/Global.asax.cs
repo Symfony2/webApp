@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Ninject;
+using Ninject.Parameters;
+using webf.Models.EntityModel;
+using webf.SvcDependencies;
 
 namespace webf
 {
@@ -24,17 +28,41 @@ namespace webf
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "UserRegistrationBlank", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "UiProfile", action = "UserRegistrationBlank", id = UrlParameter.Optional } // Parameter defaults
             );
 
         }
 
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+            IKernel kernel = new StandardKernel();
+            kernel.Bind<IDbServices>().To<DataBaseManeger<FlexDBEntities>>();
 
+            DependencyResolver.SetResolver(new DataDependencyResolver(kernel));
+
+            AreaRegistration.RegisterAllAreas();
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        }
+
+        
+    }
+
+    public  class DataDependencyResolver: IDependencyResolver
+    {
+        private IKernel _kernel;
+        public DataDependencyResolver(IKernel kernel)
+        {
+            _kernel = kernel;
+        }
+        public object GetService(Type serviceType)
+        {
+            return _kernel.TryGet(serviceType, new IParameter[0]);
+        }
+
+        public IEnumerable<object> GetServices(Type serviceType)
+        {
+            return _kernel.GetAll(serviceType, new IParameter[0]);
         }
     }
 }
