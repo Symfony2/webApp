@@ -1,3 +1,4 @@
 <Modules>
   <Module PersistentId="8889478C-1D9A-4DCD-ADBD-DA8E01286F64" ModuleId="webf" />
+  <Module PersistentId="System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.Data.Entity" />
 </Modules>
