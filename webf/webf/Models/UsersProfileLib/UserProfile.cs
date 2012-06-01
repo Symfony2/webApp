@@ -5,14 +5,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using webf.App_GlobalResources;
+using webf.SvcDependencies;
 
 namespace webf.Models.EntityModel
 {
     
-    public class RegForm//: DefaultModelBinder
+    public class RegForm: Ancestor    //: DefaultModelBinder
     {
         public  RegForm()
-        {}
+        {
+            
+        }
 
         [Required]
         [Display(Name = "Фамилия")]
@@ -52,6 +55,8 @@ namespace webf.Models.EntityModel
 
         [Display(Name = "E-mail")]
         public string Email { get; set; }
+
+        
 
         
         public HttpPostedFileBase ImgFile { get; set; }

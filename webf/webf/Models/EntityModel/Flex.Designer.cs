@@ -18,12 +18,13 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("FlexDBModel", "FK_UserProfile_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.aspnet_Users), "UserProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.UserProfile), true)]
-[assembly: EdmRelationshipAttribute("FlexDBModel", "FK_UserProfile_Contacts", "Contacts", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.Contacts), "UserProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.UserProfile), true)]
 [assembly: EdmRelationshipAttribute("FlexDBModel", "FK_KeyTable_KeyType", "KeyType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(webf.Models.EntityModel.KeyType), "KeyTable", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.KeyTable), true)]
 [assembly: EdmRelationshipAttribute("FlexDBModel", "FK_KeyTable_PrivKeyStorage", "PrivKeyStorage", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.PrivKeyStorage), "KeyTable", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.KeyTable), true)]
 [assembly: EdmRelationshipAttribute("FlexDBModel", "FK_KeyTable_PubKeyStorage", "PubKeyStorage", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.PubKeyStorage), "KeyTable", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.KeyTable), true)]
+[assembly: EdmRelationshipAttribute("FlexDBModel", "FK_UserProfile_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.aspnet_Users), "UserProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.UserProfile), true)]
+[assembly: EdmRelationshipAttribute("FlexDBModel", "FK_UserProfile_Contacts", "Contacts", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.Contacts), "UserProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.UserProfile), true)]
 [assembly: EdmRelationshipAttribute("FlexDBModel", "FK_UserProfile_KeyTable", "KeyTable", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.KeyTable), "UserProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.UserProfile), true)]
+[assembly: EdmRelationshipAttribute("FlexDBModel", "FK_UserProfile_MilitaryDegree", "MilitaryDegree", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.MilitaryDegree), "UserProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.UserProfile), true)]
 
 #endregion
 
@@ -174,6 +175,22 @@ namespace webf.Models.EntityModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<MilitaryDegree> MilitaryDegree
+        {
+            get
+            {
+                if ((_MilitaryDegree == null))
+                {
+                    _MilitaryDegree = base.CreateObjectSet<MilitaryDegree>("MilitaryDegree");
+                }
+                return _MilitaryDegree;
+            }
+        }
+        private ObjectSet<MilitaryDegree> _MilitaryDegree;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<UserProfile> UserProfile
         {
             get
@@ -236,6 +253,14 @@ namespace webf.Models.EntityModel
         public void AddToPubKeyStorage(PubKeyStorage pubKeyStorage)
         {
             base.AddObject("PubKeyStorage", pubKeyStorage);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the MilitaryDegree EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMilitaryDegree(MilitaryDegree militaryDegree)
+        {
+            base.AddObject("MilitaryDegree", militaryDegree);
         }
     
         /// <summary>
@@ -1087,6 +1112,110 @@ namespace webf.Models.EntityModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="FlexDBModel", Name="MilitaryDegree")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class MilitaryDegree : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new MilitaryDegree object.
+        /// </summary>
+        /// <param name="degreeID">Initial value of the DegreeID property.</param>
+        public static MilitaryDegree CreateMilitaryDegree(global::System.Int32 degreeID)
+        {
+            MilitaryDegree militaryDegree = new MilitaryDegree();
+            militaryDegree.DegreeID = degreeID;
+            return militaryDegree;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DegreeID
+        {
+            get
+            {
+                return _DegreeID;
+            }
+            set
+            {
+                if (_DegreeID != value)
+                {
+                    OnDegreeIDChanging(value);
+                    ReportPropertyChanging("DegreeID");
+                    _DegreeID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DegreeID");
+                    OnDegreeIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DegreeID;
+        partial void OnDegreeIDChanging(global::System.Int32 value);
+        partial void OnDegreeIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DegreeName
+        {
+            get
+            {
+                return _DegreeName;
+            }
+            set
+            {
+                OnDegreeNameChanging(value);
+                ReportPropertyChanging("DegreeName");
+                _DegreeName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("DegreeName");
+                OnDegreeNameChanged();
+            }
+        }
+        private global::System.String _DegreeName;
+        partial void OnDegreeNameChanging(global::System.String value);
+        partial void OnDegreeNameChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FlexDBModel", "FK_UserProfile_MilitaryDegree", "UserProfile")]
+        public EntityCollection<UserProfile> UserProfile
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserProfile>("FlexDBModel.FK_UserProfile_MilitaryDegree", "UserProfile");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserProfile>("FlexDBModel.FK_UserProfile_MilitaryDegree", "UserProfile", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="FlexDBModel", Name="PrivKeyStorage")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1745,6 +1874,44 @@ namespace webf.Models.EntityModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<KeyTable>("FlexDBModel.FK_UserProfile_KeyTable", "KeyTable", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FlexDBModel", "FK_UserProfile_MilitaryDegree", "MilitaryDegree")]
+        public MilitaryDegree MilitaryDegree
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MilitaryDegree>("FlexDBModel.FK_UserProfile_MilitaryDegree", "MilitaryDegree").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MilitaryDegree>("FlexDBModel.FK_UserProfile_MilitaryDegree", "MilitaryDegree").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<MilitaryDegree> MilitaryDegreeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MilitaryDegree>("FlexDBModel.FK_UserProfile_MilitaryDegree", "MilitaryDegree");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MilitaryDegree>("FlexDBModel.FK_UserProfile_MilitaryDegree", "MilitaryDegree", value);
                 }
             }
         }

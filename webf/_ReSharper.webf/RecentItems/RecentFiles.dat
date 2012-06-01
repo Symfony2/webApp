@@ -3,52 +3,52 @@
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:Home/f:Index.cshtml" caret="236" fromTop="10" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:Home/f:List.cshtml" caret="156" fromTop="9" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/f:KeyBundleGenerator.cs" caret="241" fromTop="12" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/f:Days.cs" caret="840" fromTop="26" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/f:AccountModels.cs" caret="326" fromTop="0" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:Account/f:Register.cshtml" caret="0" fromTop="0" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:AccountController.cs" caret="2335" fromTop="20" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Web.config" caret="442" fromTop="12" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Web.config" caret="4772" fromTop="12" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:HomeController.cs" caret="1059" fromTop="11" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:UiProfile/f:UserRegistrationBlank.cshtml" caret="1538" fromTop="21" />
-    <File id="97AC3816-953D-4382-98E2-1AC8BBE66629/f:EntityObject.cs" caret="668" fromTop="18" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/d:UsersProfileLib/f:UserProfilePC.cs" caret="165" fromTop="7" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/d:EntityModel/f:Flex.Designer.cs" caret="50667" fromTop="20" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/d:UsersProfileLib/f:UserProfile.cs" caret="558" fromTop="18" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:UiProfileController.cs" caret="1184" fromTop="32" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/d:EntityModel/f:Flex.Designer.cs" caret="71419" fromTop="20" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Global.asax.cs" caret="1447" fromTop="17" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/f:Days.cs" caret="797" fromTop="25" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:UiProfileController.cs" caret="362" fromTop="0" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:IDbServices.cs" caret="230" fromTop="11" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:Ancestor.cs" caret="983" fromTop="24" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Global.asax.cs" caret="1632" fromTop="29" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:CrudOperations.cs" caret="983" fromTop="9" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/f:Ancestor.cs" caret="183" fromTop="8" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/d:UsersProfileLib/f:UserProfile.cs" caret="385" fromTop="13" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:UiProfile/f:UserRegistrationBlank.cshtml" caret="1538" fromTop="21" />
   </RecentFiles>
   <RecentEdits>
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:Ancestor.cs" caret="2192" fromTop="19" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:HomeController.cs" caret="1059" fromTop="10" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:HomeController.cs" caret="1059" fromTop="26" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:HomeController.cs" caret="1059" fromTop="32" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:Ancestor.cs" caret="2192" fromTop="10" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/d:UsersProfileLib/f:UserProfilePC.cs" caret="165" fromTop="7" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:UiProfile/f:UserRegistrationBlank.cshtml" caret="6737" fromTop="36" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:UiProfileController.cs" caret="678" fromTop="21" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:UiProfileController.cs" caret="1240" fromTop="35" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:UiProfileController.cs" caret="1503" fromTop="35" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:HomeController.cs" caret="1059" fromTop="11" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Views/d:UiProfile/f:UserRegistrationBlank.cshtml" caret="1432" fromTop="18" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Global.asax.cs" caret="950" fromTop="26" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:Ancestor.cs" caret="2192" fromTop="25" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:Ancestor.cs" caret="2173" fromTop="29" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:CrudOperations.cs" caret="2192" fromTop="25" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:CrudOperations.cs" caret="2173" fromTop="29" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Global.asax.cs" caret="1729" fromTop="19" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Global.asax.cs" caret="1871" fromTop="23" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Global.asax.cs" caret="2029" fromTop="28" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:IDbServices.cs" caret="220" fromTop="11" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:Ancestor.cs" caret="1522" fromTop="28" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:Ancestor.cs" caret="481" fromTop="15" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:Ancestor.cs" caret="492" fromTop="16" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:Ancestor.cs" caret="346" fromTop="5" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:CrudOperations.cs" caret="1522" fromTop="28" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:CrudOperations.cs" caret="481" fromTop="15" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:CrudOperations.cs" caret="492" fromTop="16" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:CrudOperations.cs" caret="346" fromTop="5" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Global.asax.cs" caret="1339" fromTop="12" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Global.asax.cs" caret="1671" fromTop="21" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/f:Global.asax.cs" caret="1334" fromTop="8" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:UiProfileController.cs" caret="450" fromTop="9" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:UiProfileController.cs" caret="475" fromTop="11" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:UiProfileController.cs" caret="1184" fromTop="32" />
     <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:IDbServices.cs" caret="218" fromTop="9" />
-    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:Ancestor.cs" caret="915" fromTop="17" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:SvcDependencies/d:db/f:CrudOperations.cs" caret="915" fromTop="17" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:UiProfileController.cs" caret="1133" fromTop="28" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Controllers/f:UiProfileController.cs" caret="1445" fromTop="28" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/d:UsersProfileLib/f:UserProfile.cs" caret="1694" fromTop="22" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/f:Ancestor.cs" caret="249" fromTop="10" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/d:UsersProfileLib/f:UserProfile.cs" caret="300" fromTop="9" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/d:UsersProfileLib/f:UserProfile.cs" caret="385" fromTop="13" />
+    <File id="8889478C-1D9A-4DCD-ADBD-DA8E01286F64/d:Models/d:UsersProfileLib/f:UserProfile.cs" caret="1880" fromTop="13" />
   </RecentEdits>
 </RecentFiles>

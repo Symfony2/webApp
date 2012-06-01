@@ -80,5 +80,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MilitaryDegree">
+      <EntityTypeMapping TypeName="FlexDBModel.MilitaryDegree">
+        <MappingFragment StoreEntitySet="MilitaryDegree">
+          <ScalarProperty Name="DegreeName" ColumnName="DegreeName" />
+          <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

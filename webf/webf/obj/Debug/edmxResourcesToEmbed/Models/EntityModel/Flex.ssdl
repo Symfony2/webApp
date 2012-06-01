@@ -5,6 +5,7 @@
     <EntitySet Name="Contacts" EntityType="FlexDBModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="KeyTable" EntityType="FlexDBModel.Store.KeyTable" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="KeyType" EntityType="FlexDBModel.Store.KeyType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MilitaryDegree" EntityType="FlexDBModel.Store.MilitaryDegree" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PrivKeyStorage" EntityType="FlexDBModel.Store.PrivKeyStorage" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PubKeyStorage" EntityType="FlexDBModel.Store.PubKeyStorage" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserProfile" EntityType="FlexDBModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
@@ -72,6 +73,13 @@
     </Key>
     <Property Name="KeyTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="TypeName" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="MilitaryDegree">
+    <Key>
+      <PropertyRef Name="DegreeID" />
+    </Key>
+    <Property Name="DegreeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DegreeName" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="PrivKeyStorage">
     <Key>

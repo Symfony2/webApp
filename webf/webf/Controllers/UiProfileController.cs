@@ -33,12 +33,17 @@ namespace webf.Controllers
             if (ModelState.IsValid)
             {
                 UserProfile profile = new UserProfile();
+                profile.LastName = obj.LastName;
+                profile.FirstName = obj.FirstName;
+                profile.ParentName = obj.ParentName;
+                profile.DateOfBirth = obj.BirthDate;
+                profile.Post = obj.Post;
                 byte[] imgBuffer = new byte[obj.ImgFile.ContentLength];
                 using (Stream memStrm = obj.ImgFile.InputStream)
                 {
                     memStrm.Read(imgBuffer, 0, imgBuffer.Length);
                 }
-                _dbServices.saveModeltoDB<UserProfile>();
+                /*_dbServices.saveModeltoDB<UserProfile>(profile);*/
             }
 
             return View();

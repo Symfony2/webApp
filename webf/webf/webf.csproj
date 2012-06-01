@@ -78,7 +78,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="SvcDependencies\db\Ancestor.cs" />
+    <Compile Include="Models\Ancestor.cs" />
+    <Compile Include="SvcDependencies\db\CrudOperations.cs" />
     <Compile Include="Models\Days.cs" />
     <Compile Include="Models\EntityModel\Flex.Designer.cs">
       <AutoGen>True</AutoGen>
