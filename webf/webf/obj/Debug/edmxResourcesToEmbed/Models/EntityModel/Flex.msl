@@ -14,18 +14,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Contacts">
-      <EntityTypeMapping TypeName="FlexDBModel.Contacts">
-        <MappingFragment StoreEntitySet="Contacts">
-          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
-          <ScalarProperty Name="PhoneNumHome" ColumnName="PhoneNumHome" />
-          <ScalarProperty Name="PhoneNumMobile" ColumnName="PhoneNumMobile" />
-          <ScalarProperty Name="PhoneNumWorkOS" ColumnName="PhoneNumWorkOS" />
-          <ScalarProperty Name="PhoneNumWorkGTS" ColumnName="PhoneNumWorkGTS" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="KeyTable">
       <EntityTypeMapping TypeName="FlexDBModel.KeyTable">
         <MappingFragment StoreEntitySet="KeyTable">
@@ -63,28 +51,40 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserProfile">
-      <EntityTypeMapping TypeName="FlexDBModel.UserProfile">
-        <MappingFragment StoreEntitySet="UserProfile">
-          <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="ParentName" ColumnName="ParentName" />
-          <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
-          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
-          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
-          <ScalarProperty Name="Photo" ColumnName="Photo" />
-          <ScalarProperty Name="Post" ColumnName="Post" />
-          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
-          <ScalarProperty Name="KeyID" ColumnName="KeyID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="MilitaryDegree">
       <EntityTypeMapping TypeName="FlexDBModel.MilitaryDegree">
         <MappingFragment StoreEntitySet="MilitaryDegree">
           <ScalarProperty Name="DegreeName" ColumnName="DegreeName" />
           <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfile">
+      <EntityTypeMapping TypeName="FlexDBModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="KeyID" ColumnName="KeyID" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+          <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="FlexDBModel.Contacts">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumWorkGTS" ColumnName="PhoneNumWorkGTS" />
+          <ScalarProperty Name="PhoneNumWorkOS" ColumnName="PhoneNumWorkOS" />
+          <ScalarProperty Name="PhoneNumMobile" ColumnName="PhoneNumMobile" />
+          <ScalarProperty Name="PhoneNumHome" ColumnName="PhoneNumHome" />
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

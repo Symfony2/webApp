@@ -9,30 +9,29 @@ using webf.SvcDependencies;
 
 namespace webf.Models.EntityModel
 {
-    
-    public class RegForm: Ancestor    //: DefaultModelBinder
+
+    public class RegForm : Ancestor    //: DefaultModelBinder
     {
         public  RegForm()
         {
-            
+            fillCollections();
         }
 
+        
         [Required]
         [Display(Name = "Фамилия")]
+        [BindingProperty("LastName")]
         public string LastName { get; set; }
 
         [Required]
+        [BindingProperty("FirstName")]
         [Display(Name = "Имя")]
         public string FirstName { get; set; }
-
-        [Required]
+        
         [Display(Name = "Отчество")]
         public string ParentName { get; set; }
         
         [Display(Name = "Дата рождения")]
-        [RegularExpression(@"\d{1,2}\.\d{1,2}\.\d{4}", 
-            ErrorMessageResourceName = "DateFormatIncorrect", 
-            ErrorMessageResourceType = typeof(ErrorStrings))]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
 
@@ -55,15 +54,18 @@ namespace webf.Models.EntityModel
 
         [Display(Name = "E-mail")]
         public string Email { get; set; }
-
-        
-
         
         public HttpPostedFileBase ImgFile { get; set; }
 
+        [Display(Name = "Звание")]
+        [FillList(typeof(MilitaryDegree),"DegreeName")]
+        public SelectList UserDegree { get; set; }
+
+        public int SelectedDegreeID { get; set; }
         
         public Guid LoginID { get; set; }
         public int KeyRingId { get; set; }
+        
     }
 
     

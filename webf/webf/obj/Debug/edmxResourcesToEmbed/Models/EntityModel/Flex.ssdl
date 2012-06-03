@@ -33,6 +33,10 @@
       <End Role="KeyTable" EntitySet="KeyTable" />
       <End Role="UserProfile" EntitySet="UserProfile" />
     </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_MilitaryDegree" Association="FlexDBModel.Store.FK_UserProfile_MilitaryDegree">
+      <End Role="MilitaryDegree" EntitySet="MilitaryDegree" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="aspnet_Users">
     <Key>
@@ -48,9 +52,9 @@
   </EntityType>
   <EntityType Name="Contacts">
     <Key>
-      <PropertyRef Name="ContactId" />
+      <PropertyRef Name="ContactID" />
     </Key>
-    <Property Name="ContactId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ContactID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PhoneNumHome" Type="nvarchar" MaxLength="70" />
     <Property Name="PhoneNumMobile" Type="nvarchar" MaxLength="70" />
     <Property Name="PhoneNumWorkOS" Type="nvarchar" MaxLength="70" />
@@ -154,7 +158,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserProfile_aspnet_Users">
-    <End Role="aspnet_Users" Type="FlexDBModel.Store.aspnet_Users" Multiplicity="0..1" />
+    <End Role="aspnet_Users" Type="FlexDBModel.Store.aspnet_Users" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Users">
@@ -166,19 +172,23 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserProfile_Contacts">
-    <End Role="Contacts" Type="FlexDBModel.Store.Contacts" Multiplicity="0..1" />
-    <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
+    <End Role="Contacts" Type="FlexDBModel.Store.Contacts" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Contacts">
-        <PropertyRef Name="ContactId" />
+        <PropertyRef Name="ContactID" />
       </Principal>
       <Dependent Role="UserProfile">
-        <PropertyRef Name="ContactID" />
+        <PropertyRef Name="UserProfileID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserProfile_KeyTable">
-    <End Role="KeyTable" Type="FlexDBModel.Store.KeyTable" Multiplicity="0..1" />
+    <End Role="KeyTable" Type="FlexDBModel.Store.KeyTable" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="KeyTable">
@@ -186,6 +196,18 @@
       </Principal>
       <Dependent Role="UserProfile">
         <PropertyRef Name="KeyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_MilitaryDegree">
+    <End Role="MilitaryDegree" Type="FlexDBModel.Store.MilitaryDegree" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MilitaryDegree">
+        <PropertyRef Name="DegreeID" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="DegreeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -8,6 +8,7 @@ using Ninject;
 using Ninject.Parameters;
 using webf.Models.EntityModel;
 using webf.SvcDependencies;
+using webf.SvcDependencies.db;
 
 namespace webf
 {
@@ -28,7 +29,9 @@ namespace webf
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "UiProfile", action = "UserRegistrationBlank", id = UrlParameter.Optional } // Parameter defaults
+                //new { controller = "UiProfile", action = "UserRegistrationBlank", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Home", action = "List", id = UrlParameter.Optional }, // Parameter defaults
+                new { controller = "UiProfile", action = "UiResultUpdatable", id = UrlParameter.Optional }
             );
 
         }

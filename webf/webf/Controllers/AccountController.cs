@@ -38,7 +38,9 @@ namespace webf.Controllers
                     }
                     else
                     {
+
                         return RedirectToAction("Index", "Home");
+                        
                     }
                 }
                 else
@@ -86,7 +88,10 @@ namespace webf.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
+                    var userId = (Guid)(Membership.GetUser(model.UserName, true).ProviderUserKey);
+                    Session["NewUserLoginID"] = userId;
+                    
+                    return RedirectToAction("UserRegistrationBlank", "UiProfile");
                 }
                 else
                 {
@@ -192,4 +197,7 @@ namespace webf.Controllers
         }
         #endregion
     }
+
+    
+
 }

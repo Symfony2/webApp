@@ -2,20 +2,10 @@
 <Schema Namespace="FlexDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="FlexDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="aspnet_Users" EntityType="FlexDBModel.aspnet_Users" />
-    <EntitySet Name="Contacts" EntityType="FlexDBModel.Contacts" />
     <EntitySet Name="KeyTable" EntityType="FlexDBModel.KeyTable" />
     <EntitySet Name="KeyType" EntityType="FlexDBModel.KeyType" />
     <EntitySet Name="PrivKeyStorage" EntityType="FlexDBModel.PrivKeyStorage" />
     <EntitySet Name="PubKeyStorage" EntityType="FlexDBModel.PubKeyStorage" />
-    <EntitySet Name="UserProfile" EntityType="FlexDBModel.UserProfile" />
-    <AssociationSet Name="FK_UserProfile_aspnet_Users" Association="FlexDBModel.FK_UserProfile_aspnet_Users">
-      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
-      <End EntitySet="UserProfile" Role="UserProfile" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserProfile_Contacts" Association="FlexDBModel.FK_UserProfile_Contacts">
-      <End EntitySet="Contacts" Role="Contacts" />
-      <End EntitySet="UserProfile" Role="UserProfile" />
-    </AssociationSet>
     <AssociationSet Name="FK_KeyTable_KeyType" Association="FlexDBModel.FK_KeyTable_KeyType">
       <End Role="KeyType" EntitySet="KeyType" />
       <End Role="KeyTable" EntitySet="KeyTable" />
@@ -28,11 +18,25 @@
       <End Role="PubKeyStorage" EntitySet="PubKeyStorage" />
       <End Role="KeyTable" EntitySet="KeyTable" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserProfile_KeyTable" Association="FlexDBModel.FK_UserProfile_KeyTable">
-      <End EntitySet="KeyTable" Role="KeyTable" />
-      <End EntitySet="UserProfile" Role="UserProfile" />
-    </AssociationSet>
     <EntitySet Name="MilitaryDegree" EntityType="FlexDBModel.MilitaryDegree" />
+    <EntitySet Name="UserProfile" EntityType="FlexDBModel.UserProfile" />
+    <AssociationSet Name="FK_UserProfile_aspnet_Users" Association="FlexDBModel.FK_UserProfile_aspnet_Users">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_KeyTable" Association="FlexDBModel.FK_UserProfile_KeyTable">
+      <End Role="KeyTable" EntitySet="KeyTable" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_MilitaryDegree" Association="FlexDBModel.FK_UserProfile_MilitaryDegree">
+      <End Role="MilitaryDegree" EntitySet="MilitaryDegree" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <EntitySet Name="Contacts" EntityType="FlexDBModel.Contacts" />
+    <AssociationSet Name="FK_UserProfile_Contacts" Association="FlexDBModel.FK_UserProfile_Contacts">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="aspnet_Users">
     <Key>
@@ -46,18 +50,6 @@
     <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
     <Property Name="LastActivityDate" Type="DateTime" Nullable="false" />
     <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_aspnet_Users" FromRole="aspnet_Users" ToRole="UserProfile" />
-  </EntityType>
-  <EntityType Name="Contacts">
-    <Key>
-      <PropertyRef Name="ContactId" />
-    </Key>
-    <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PhoneNumHome" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
-    <Property Name="PhoneNumMobile" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
-    <Property Name="PhoneNumWorkOS" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
-    <Property Name="PhoneNumWorkGTS" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
-    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_Contacts" FromRole="Contacts" ToRole="UserProfile" />
   </EntityType>
   <EntityType Name="KeyTable">
     <Key>
@@ -99,49 +91,6 @@
     <Property Name="GenerationDateTime" Type="DateTime" />
     <NavigationProperty Name="KeyTable" Relationship="FlexDBModel.FK_KeyTable_PubKeyStorage" FromRole="PubKeyStorage" ToRole="KeyTable" />
   </EntityType>
-  <EntityType Name="UserProfile">
-    <Key>
-      <PropertyRef Name="UserProfileID" />
-    </Key>
-    <Property Name="UserProfileID" Nullable="false" Type="Guid" />
-    <Property Name="LastName" MaxLength="150" FixedLength="false" Unicode="true" Type="String" />
-    <Property Name="FirstName" MaxLength="150" FixedLength="false" Unicode="true" Type="String" />
-    <Property Name="ParentName" MaxLength="150" FixedLength="false" Unicode="true" Type="String" />
-    <Property Name="DegreeID" Type="Int32" />
-    <Property Name="DateOfBirth" Type="DateTime" />
-    <Property Name="ContactID" Type="Int32" />
-    <Property Name="Photo" MaxLength="Max" FixedLength="false" Type="Binary" />
-    <Property Name="Post" MaxLength="300" FixedLength="false" Unicode="true" Type="String" />
-    <Property Name="LoginID" Type="Guid" />
-    <Property Name="KeyID" Type="Int32" />
-    <NavigationProperty Name="aspnet_Users" Relationship="FlexDBModel.FK_UserProfile_aspnet_Users" FromRole="UserProfile" ToRole="aspnet_Users" />
-    <NavigationProperty Name="Contacts" Relationship="FlexDBModel.FK_UserProfile_Contacts" FromRole="UserProfile" ToRole="Contacts" />
-    <NavigationProperty Name="KeyTable" Relationship="FlexDBModel.FK_UserProfile_KeyTable" FromRole="UserProfile" ToRole="KeyTable" />
-  </EntityType>
-  <Association Name="FK_UserProfile_aspnet_Users">
-    <End Type="FlexDBModel.aspnet_Users" Multiplicity="0..1" Role="aspnet_Users" />
-    <End Type="FlexDBModel.UserProfile" Multiplicity="*" Role="UserProfile" />
-    <ReferentialConstraint>
-      <Principal Role="aspnet_Users">
-        <PropertyRef Name="UserId" />
-      </Principal>
-      <Dependent Role="UserProfile">
-        <PropertyRef Name="LoginID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserProfile_Contacts">
-    <End Type="FlexDBModel.Contacts" Multiplicity="0..1" Role="Contacts" />
-    <End Type="FlexDBModel.UserProfile" Multiplicity="*" Role="UserProfile" />
-    <ReferentialConstraint>
-      <Principal Role="Contacts">
-        <PropertyRef Name="ContactId" />
-      </Principal>
-      <Dependent Role="UserProfile">
-        <PropertyRef Name="ContactID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_KeyTable_KeyType">
     <End Role="KeyType" Type="FlexDBModel.KeyType" Multiplicity="1" />
     <End Role="KeyTable" Type="FlexDBModel.KeyTable" Multiplicity="*" />
@@ -182,9 +131,49 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="MilitaryDegree">
+    <Key>
+      <PropertyRef Name="DegreeID" />
+    </Key>
+    <Property Type="Int32" Name="DegreeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DegreeName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_MilitaryDegree" FromRole="MilitaryDegree" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserProfileID" />
+    </Key>
+    <Property Type="Guid" Name="UserProfileID" Nullable="false" />
+    <Property Type="String" Name="LastName" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FirstName" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ParentName" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="DegreeID" />
+    <Property Type="DateTime" Name="DateOfBirth" />
+    <Property Type="Int32" Name="ContactID" />
+    <Property Type="Binary" Name="Photo" MaxLength="Max" FixedLength="false" />
+    <Property Type="String" Name="Post" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="LoginID" />
+    <Property Type="Int32" Name="KeyID" />
+    <NavigationProperty Name="aspnet_Users" Relationship="FlexDBModel.FK_UserProfile_aspnet_Users" FromRole="UserProfile" ToRole="aspnet_Users" />
+    <NavigationProperty Name="KeyTable" Relationship="FlexDBModel.FK_UserProfile_KeyTable" FromRole="UserProfile" ToRole="KeyTable" />
+    <NavigationProperty Name="MilitaryDegree" Relationship="FlexDBModel.FK_UserProfile_MilitaryDegree" FromRole="UserProfile" ToRole="MilitaryDegree" />
+    <NavigationProperty Name="Contacts" Relationship="FlexDBModel.FK_UserProfile_Contacts" FromRole="UserProfile" ToRole="Contacts" />
+  </EntityType>
+  <Association Name="FK_UserProfile_aspnet_Users">
+    <End Type="FlexDBModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
+    <End Type="FlexDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserProfile_KeyTable">
-    <End Type="FlexDBModel.KeyTable" Multiplicity="0..1" Role="KeyTable" />
-    <End Type="FlexDBModel.UserProfile" Multiplicity="*" Role="UserProfile" />
+    <End Type="FlexDBModel.KeyTable" Role="KeyTable" Multiplicity="0..1" />
+    <End Type="FlexDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="KeyTable">
         <PropertyRef Name="Id" />
@@ -194,11 +183,40 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="MilitaryDegree">
+  <Association Name="FK_UserProfile_MilitaryDegree">
+    <End Type="FlexDBModel.MilitaryDegree" Role="MilitaryDegree" Multiplicity="0..1" />
+    <End Type="FlexDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MilitaryDegree">
+        <PropertyRef Name="DegreeID" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="DegreeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Contacts">
     <Key>
-      <PropertyRef Name="DegreeID" />
+      <PropertyRef Name="ContactID" />
     </Key>
-    <Property Type="Int32" Name="DegreeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="DegreeName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ContactID" Nullable="false" />
+    <Property Type="String" Name="PhoneNumHome" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PhoneNumMobile" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PhoneNumWorkOS" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PhoneNumWorkGTS" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_Contacts" FromRole="Contacts" ToRole="UserProfile" />
   </EntityType>
+  <Association Name="FK_UserProfile_Contacts">
+    <End Type="FlexDBModel.Contacts" Role="Contacts" Multiplicity="1" />
+    <End Type="FlexDBModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="ContactID" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="UserProfileID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

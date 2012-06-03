@@ -7,6 +7,6 @@ namespace webf.SvcDependencies
 {
     public interface IDbServices
     {
-        bool saveModeltoDB<TableType>(TableType obj);
+        bool saveModeltoDB<TableType>(Type tableType, TableType obj);
     }
 }

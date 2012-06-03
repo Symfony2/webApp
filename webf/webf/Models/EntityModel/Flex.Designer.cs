@@ -22,9 +22,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("FlexDBModel", "FK_KeyTable_PrivKeyStorage", "PrivKeyStorage", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.PrivKeyStorage), "KeyTable", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.KeyTable), true)]
 [assembly: EdmRelationshipAttribute("FlexDBModel", "FK_KeyTable_PubKeyStorage", "PubKeyStorage", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.PubKeyStorage), "KeyTable", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.KeyTable), true)]
 [assembly: EdmRelationshipAttribute("FlexDBModel", "FK_UserProfile_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.aspnet_Users), "UserProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.UserProfile), true)]
-[assembly: EdmRelationshipAttribute("FlexDBModel", "FK_UserProfile_Contacts", "Contacts", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.Contacts), "UserProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.UserProfile), true)]
 [assembly: EdmRelationshipAttribute("FlexDBModel", "FK_UserProfile_KeyTable", "KeyTable", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.KeyTable), "UserProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.UserProfile), true)]
 [assembly: EdmRelationshipAttribute("FlexDBModel", "FK_UserProfile_MilitaryDegree", "MilitaryDegree", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.MilitaryDegree), "UserProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(webf.Models.EntityModel.UserProfile), true)]
+[assembly: EdmRelationshipAttribute("FlexDBModel", "FK_UserProfile_Contacts", "Contacts", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(webf.Models.EntityModel.Contacts), "UserProfile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(webf.Models.EntityModel.UserProfile), true)]
 
 #endregion
 
@@ -91,22 +91,6 @@ namespace webf.Models.EntityModel
             }
         }
         private ObjectSet<aspnet_Users> _aspnet_Users;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Contacts> Contacts
-        {
-            get
-            {
-                if ((_Contacts == null))
-                {
-                    _Contacts = base.CreateObjectSet<Contacts>("Contacts");
-                }
-                return _Contacts;
-            }
-        }
-        private ObjectSet<Contacts> _Contacts;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -203,6 +187,22 @@ namespace webf.Models.EntityModel
             }
         }
         private ObjectSet<UserProfile> _UserProfile;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Contacts> Contacts
+        {
+            get
+            {
+                if ((_Contacts == null))
+                {
+                    _Contacts = base.CreateObjectSet<Contacts>("Contacts");
+                }
+                return _Contacts;
+            }
+        }
+        private ObjectSet<Contacts> _Contacts;
 
         #endregion
         #region AddTo Methods
@@ -213,14 +213,6 @@ namespace webf.Models.EntityModel
         public void AddToaspnet_Users(aspnet_Users aspnet_Users)
         {
             base.AddObject("aspnet_Users", aspnet_Users);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Contacts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToContacts(Contacts contacts)
-        {
-            base.AddObject("Contacts", contacts);
         }
     
         /// <summary>
@@ -269,6 +261,14 @@ namespace webf.Models.EntityModel
         public void AddToUserProfile(UserProfile userProfile)
         {
             base.AddObject("UserProfile", userProfile);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Contacts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToContacts(Contacts contacts)
+        {
+            base.AddObject("Contacts", contacts);
         }
 
         #endregion
@@ -526,11 +526,11 @@ namespace webf.Models.EntityModel
         /// <summary>
         /// Create a new Contacts object.
         /// </summary>
-        /// <param name="contactId">Initial value of the ContactId property.</param>
-        public static Contacts CreateContacts(global::System.Int32 contactId)
+        /// <param name="contactID">Initial value of the ContactID property.</param>
+        public static Contacts CreateContacts(global::System.Guid contactID)
         {
             Contacts contacts = new Contacts();
-            contacts.ContactId = contactId;
+            contacts.ContactID = contactID;
             return contacts;
         }
 
@@ -542,27 +542,27 @@ namespace webf.Models.EntityModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ContactId
+        public global::System.Guid ContactID
         {
             get
             {
-                return _ContactId;
+                return _ContactID;
             }
             set
             {
-                if (_ContactId != value)
+                if (_ContactID != value)
                 {
-                    OnContactIdChanging(value);
-                    ReportPropertyChanging("ContactId");
-                    _ContactId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ContactId");
-                    OnContactIdChanged();
+                    OnContactIDChanging(value);
+                    ReportPropertyChanging("ContactID");
+                    _ContactID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ContactID");
+                    OnContactIDChanged();
                 }
             }
         }
-        private global::System.Int32 _ContactId;
-        partial void OnContactIdChanging(global::System.Int32 value);
-        partial void OnContactIdChanged();
+        private global::System.Guid _ContactID;
+        partial void OnContactIDChanging(global::System.Guid value);
+        partial void OnContactIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -695,17 +695,33 @@ namespace webf.Models.EntityModel
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("FlexDBModel", "FK_UserProfile_Contacts", "UserProfile")]
-        public EntityCollection<UserProfile> UserProfile
+        public UserProfile UserProfile
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserProfile>("FlexDBModel.FK_UserProfile_Contacts", "UserProfile");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserProfile>("FlexDBModel.FK_UserProfile_Contacts", "UserProfile").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserProfile>("FlexDBModel.FK_UserProfile_Contacts", "UserProfile").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<UserProfile> UserProfileReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserProfile>("FlexDBModel.FK_UserProfile_Contacts", "UserProfile");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserProfile>("FlexDBModel.FK_UserProfile_Contacts", "UserProfile", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserProfile>("FlexDBModel.FK_UserProfile_Contacts", "UserProfile", value);
                 }
             }
         }
@@ -1808,44 +1824,6 @@ namespace webf.Models.EntityModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FlexDBModel", "FK_UserProfile_Contacts", "Contacts")]
-        public Contacts Contacts
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contacts>("FlexDBModel.FK_UserProfile_Contacts", "Contacts").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contacts>("FlexDBModel.FK_UserProfile_Contacts", "Contacts").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Contacts> ContactsReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contacts>("FlexDBModel.FK_UserProfile_Contacts", "Contacts");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Contacts>("FlexDBModel.FK_UserProfile_Contacts", "Contacts", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("FlexDBModel", "FK_UserProfile_KeyTable", "KeyTable")]
         public KeyTable KeyTable
         {
@@ -1912,6 +1890,44 @@ namespace webf.Models.EntityModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MilitaryDegree>("FlexDBModel.FK_UserProfile_MilitaryDegree", "MilitaryDegree", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FlexDBModel", "FK_UserProfile_Contacts", "Contacts")]
+        public Contacts Contacts
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contacts>("FlexDBModel.FK_UserProfile_Contacts", "Contacts").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contacts>("FlexDBModel.FK_UserProfile_Contacts", "Contacts").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Contacts> ContactsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contacts>("FlexDBModel.FK_UserProfile_Contacts", "Contacts");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Contacts>("FlexDBModel.FK_UserProfile_Contacts", "Contacts", value);
                 }
             }
         }
