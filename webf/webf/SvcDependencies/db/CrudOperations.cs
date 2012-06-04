@@ -7,9 +7,14 @@ using System.Web;
 
 namespace webf.SvcDependencies.db
 {
-    public class DataBaseManeger<TDBmodel> : IDbServices
+    public class DataBaseManeger<TDBmodel> : IDbServices<TDBmodel>
     {
         protected TDBmodel db = Activator.CreateInstance<TDBmodel>();
+        
+        public TDBmodel DataBase
+        {
+            get { return db; }
+        }
 
         public bool saveModeltoDB<Tmodel>(Type tableType, Tmodel modelTableObj)
         {

@@ -29,6 +29,3 @@ E:\repo\webf\webf\obj\Debug\GenerateResource.read.1.tlog
 E:\repo\webf\webf\obj\Debug\GenerateResource.write.1.tlog
 E:\repo\webf\webf\obj\Debug\webf.dll
 E:\repo\webf\webf\obj\Debug\webf.pdb
-E:\repo\webf\webf\bin\Ninject.dll
-E:\repo\webf\webf\bin\Ninject.pdb
-E:\repo\webf\webf\bin\Ninject.xml

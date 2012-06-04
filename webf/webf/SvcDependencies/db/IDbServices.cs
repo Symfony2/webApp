@@ -5,8 +5,10 @@ using System.Web;
 
 namespace webf.SvcDependencies
 {
-    public interface IDbServices
+    public interface IDbServices<DBModel>
     {
+        DBModel DataBase { get; } 
+    
         bool saveModeltoDB<TableType>(Type tableType, TableType obj);
     }
 }

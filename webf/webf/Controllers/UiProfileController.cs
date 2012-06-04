@@ -13,9 +13,9 @@ namespace webf.Controllers
     {
         //
         // GET: /UiProfile/
-        private IDbServices _dbServices;
+        private IDbServices<FlexDBEntities> _dbServices;
 
-        public UiProfileController(IDbServices dbServices)
+        public UiProfileController(IDbServices<FlexDBEntities> dbServices)
         {
             _dbServices = dbServices;
         }
@@ -74,12 +74,21 @@ namespace webf.Controllers
         [HttpGet]
         public ActionResult UiResultUpdatable()
         {
-            Guid newUserId = Guid.Empty;
+            /*Guid newUserId = Guid.Empty;
             if(Session["NewUserLoginID"]!=null)
-               newUserId = (Guid)Session["NewUserLoginID"];
+               newUserId = (Guid)Session["NewUserLoginID"];*/
+            Guid newUserId = Guid.Parse("ede5dca8-3894-4b44-b73c-173236bd12a5");
+
+            UserProfile query = (from c in _dbServices.DataBase.UserProfile
+                             .Include("MilitaryDegree").Include("Contacts")
+                         where c.UserProfileID.Equals(newUserId)
+                         select c).First();
             
-            File()
-            return View();
+            RegForm regForm = new RegForm();
+            regForm.createBinding<UserProfile>(query);
+
+            
+            return View(regForm);
         }
 
     }

@@ -149,7 +149,6 @@
     <Property Type="String" Name="ParentName" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="DegreeID" />
     <Property Type="DateTime" Name="DateOfBirth" />
-    <Property Type="Int32" Name="ContactID" />
     <Property Type="Binary" Name="Photo" MaxLength="Max" FixedLength="false" />
     <Property Type="String" Name="Post" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Type="Guid" Name="LoginID" />

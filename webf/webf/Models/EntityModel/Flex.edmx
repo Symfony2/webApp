@@ -369,7 +369,6 @@
           <Property Type="String" Name="ParentName" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="DegreeID" />
           <Property Type="DateTime" Name="DateOfBirth" />
-          <Property Type="Int32" Name="ContactID" />
           <Property Type="Binary" Name="Photo" MaxLength="Max" FixedLength="false" />
           <Property Type="String" Name="Post" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="LoginID" />
@@ -490,7 +489,6 @@
                 <ScalarProperty Name="LoginID" ColumnName="LoginID" />
                 <ScalarProperty Name="Post" ColumnName="Post" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
                 <ScalarProperty Name="ParentName" ColumnName="ParentName" />
@@ -557,17 +555,15 @@
           <ConnectorPoint PointX="3" PointY="3.5749249435336283" />
         </AssociationConnector>
         <EntityTypeShape EntityType="FlexDBModel.MilitaryDegree" Width="1.5" PointX="7.375" PointY="5.625" Height="1.5956835937499996" />
-        <EntityTypeShape EntityType="FlexDBModel.UserProfile" Width="1.5" PointX="5.25" PointY="4.875" Height="3.7109993489583353" />
+        <EntityTypeShape EntityType="FlexDBModel.UserProfile" Width="1.5" PointX="5.25" PointY="4.875" Height="3.7109993489583317" />
         <AssociationConnector Association="FlexDBModel.FK_UserProfile_aspnet_Users" >
-          <ConnectorPoint PointX="4.5" PointY="7.4035953776041667" />
-          <ConnectorPoint PointX="5.25" PointY="7.4035953776041667" />
+          <ConnectorPoint PointX="4.5" PointY="7.3554996744791659" />
+          <ConnectorPoint PointX="5.25" PointY="7.3554996744791659" />
         </AssociationConnector>
-        <AssociationConnector Association="FlexDBModel.FK_UserProfile_KeyTable" ManuallyRouted="true" >
-          <ConnectorPoint PointX="4.5" PointY="3.8384407552083335" />
-          <ConnectorPoint PointX="5.9375" PointY="3.8384407552083335" />
-          <ConnectorPoint PointX="5.9375" PointY="4.53293544921875" />
-          <ConnectorPoint PointX="5.28125" PointY="4.53293544921875" />
-          <ConnectorPoint PointX="5.28125" PointY="4.875" />
+        <AssociationConnector Association="FlexDBModel.FK_UserProfile_KeyTable" ManuallyRouted="false" >
+          <ConnectorPoint PointX="4.5" PointY="2.87474609375" />
+          <ConnectorPoint PointX="6" PointY="2.87474609375" />
+          <ConnectorPoint PointX="6" PointY="4.875" />
         </AssociationConnector>
         <AssociationConnector Association="FlexDBModel.FK_UserProfile_MilitaryDegree" >
           <ConnectorPoint PointX="7.375" PointY="6.422841796875" />
@@ -575,8 +571,8 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="FlexDBModel.Contacts" Width="1.5" PointX="7.375" PointY="7.625" Height="2.3648893229166674" />
         <AssociationConnector Association="FlexDBModel.FK_UserProfile_Contacts" >
-          <ConnectorPoint PointX="7.375" PointY="8.201650390625" />
-          <ConnectorPoint PointX="6.75" PointY="8.201650390625" />
+          <ConnectorPoint PointX="7.375" PointY="8.1054996744791659" />
+          <ConnectorPoint PointX="6.75" PointY="8.1054996744791659" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

@@ -29,9 +29,8 @@ namespace webf
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                //new { controller = "UiProfile", action = "UserRegistrationBlank", id = UrlParameter.Optional } // Parameter defaults
-                new { controller = "Home", action = "List", id = UrlParameter.Optional }, // Parameter defaults
-                new { controller = "UiProfile", action = "UiResultUpdatable", id = UrlParameter.Optional }
+                new { controller = "UiProfile", action = "UiResultUpdatable", id = UrlParameter.Optional } // Parameter defaults
+                //new { controller = "Home", action = "List", id = UrlParameter.Optional } // Parameter defaults
             );
 
         }
@@ -39,7 +38,7 @@ namespace webf
         protected void Application_Start()
         {
             IKernel kernel = new StandardKernel();
-            kernel.Bind<IDbServices>().To<DataBaseManeger<FlexDBEntities>>();
+            kernel.Bind<IDbServices<FlexDBEntities>>().To<DataBaseManeger<FlexDBEntities>>();
 
             DependencyResolver.SetResolver(new DataDependencyResolver(kernel));
 

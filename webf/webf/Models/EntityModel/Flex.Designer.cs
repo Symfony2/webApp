@@ -1661,30 +1661,6 @@ namespace webf.Models.EntityModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ContactID
-        {
-            get
-            {
-                return _ContactID;
-            }
-            set
-            {
-                OnContactIDChanging(value);
-                ReportPropertyChanging("ContactID");
-                _ContactID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ContactID");
-                OnContactIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ContactID;
-        partial void OnContactIDChanging(Nullable<global::System.Int32> value);
-        partial void OnContactIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public global::System.Byte[] Photo
         {
             get
