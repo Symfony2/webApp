@@ -77,7 +77,7 @@ namespace webf.Controllers
             /*Guid newUserId = Guid.Empty;
             if(Session["NewUserLoginID"]!=null)
                newUserId = (Guid)Session["NewUserLoginID"];*/
-            Guid newUserId = Guid.Parse("ede5dca8-3894-4b44-b73c-173236bd12a5");
+            Guid newUserId = Guid.Parse("86bc2c62-698f-49d1-a02c-c66ab9ee68c2");
 
             UserProfile query = (from c in _dbServices.DataBase.UserProfile
                              .Include("MilitaryDegree").Include("Contacts")
@@ -85,7 +85,7 @@ namespace webf.Controllers
                          select c).First();
             
             RegForm regForm = new RegForm();
-            regForm.createBinding<UserProfile>(query);
+            regForm.createBinding(query);
 
             
             return View(regForm);

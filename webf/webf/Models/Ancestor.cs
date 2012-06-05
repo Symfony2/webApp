@@ -77,37 +77,50 @@ namespace webf.Models
             return collectionVK;
         }
 
-        public void createBinding<EFTableType>(EFTableType efTable)
+        public void createBinding<EFTableType>(EFTableType modelTable)
         {
-            IEnumerable<PropertyInfo> props = this.GetType()
-                .GetProperties().Where(pr =>
-                                       (pr.GetCustomAttributes(typeof (BindingPropertyAttribute), false)
-                                           .Count()) != 0); /*tabels with such attributes*/
-            BindingPropertyAttribute attr = null;
-            foreach (var propertyInfo in props)
-            {
-                attr = ((BindingPropertyAttribute)
-                        propertyInfo.GetCustomAttributes(typeof (BindingPropertyAttribute), false).First());
-                
-                if (propertyInfo.GetType() is EFTableType)
-                {
-                    var currentEFModelsProp = efTable.GetType()
-                        .GetProperty(attr.ModelPropertyName).GetValue(efTable,null); /*returns value of EF model */
 
-                    this.GetType().GetProperty(propertyInfo.Name)
-                        .SetValue(this, currentEFModelsProp, null); /*Set new value for current model */
+            IEnumerable<PropertyInfo> localProps =
+                this.GetType().GetProperties().Where(pr =>
+                    pr.GetCustomAttributes(typeof(BindingPropertyAttribute), false).FirstOrDefault() != null);
+
+            BindingPropertyAttribute localAttr = null;
+            foreach (PropertyInfo localProp in localProps)
+            {
+                localAttr =
+                    (BindingPropertyAttribute)
+                    localProp.GetCustomAttributes(typeof(BindingPropertyAttribute), false).First();
+                var currentEFProperty = modelTable.GetType().GetProperty(localAttr.ModelPropertyName);
+
+                var currObj = this.GetType().GetProperties()
+                                .FirstOrDefault(lo => ((BindingPropertyAttribute)lo
+                                .GetCustomAttributes(typeof(BindingPropertyAttribute), false)
+                                .FirstOrDefault()).ModelPropertyName == localAttr.ModelPropertyName);
+
+                if (currentEFProperty != null)
+                {
+                    currObj.SetValue(this, currentEFProperty.GetValue(modelTable, null), null);
                 }
                 else
                 {
-                    var currentEFModelsProp = efTable.GetType()
-                        .GetProperty(propertyInfo.GetType().Name).GetType()
-                        .GetProperty(attr.ModelPropertyName).GetValue(efTable, null);
-                    this.GetType().GetProperty(propertyInfo.Name)
-                        .SetValue(this, currentEFModelsProp, null); /*Set new value for current model */
+                    IEnumerable<PropertyInfo> relationTableProperties =
+                        modelTable.GetType().GetProperties().Where(pr =>
+                        pr.GetCustomAttributes(typeof(EdmRelationshipNavigationPropertyAttribute), false).FirstOrDefault() != null);
+                    foreach (PropertyInfo property in relationTableProperties)
+                    {
+                        var relationalProperty = property.PropertyType.GetProperty(localAttr.ModelPropertyName);
+                        if (relationalProperty != null)
+                        {
+
+                            var relpObj = modelTable.GetType().GetProperty(property.Name).GetValue(modelTable, null);
+                            var newData = relpObj.GetType().GetProperty(localAttr.ModelPropertyName).GetValue(relpObj, null);
+
+                            currObj.SetValue(this, newData, null);
+                            break;
+                        }
+                    }
                 }
             }
-
-
         }
 
 
