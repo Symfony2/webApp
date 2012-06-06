@@ -32,43 +32,43 @@ namespace webf.Models.EntityModel
         public string ParentName { get; set; }
         
         [Display(Name = "Дата рождения")]
-        [BindingProperty("BirthDate")]
+        [BindingProperty("DateOfBirth")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
 
         [Required]
-        [BindingProperty("FirstName")]
-        [Display(Name = "Post")]
+        [BindingProperty("Post")]
+        [Display(Name = "Должность")]
         public string Post { get; set; }
 
-        [BindingProperty("FirstName")]
+        [BindingProperty("PhoneNumHome")]
         [Display(Name = "Телефон(домащний)")]
         public string PhoneHomeNum { get; set; }
         
         [Required]
-        [BindingProperty("FirstName")]
+        [BindingProperty("PhoneNumMobile")]
         [Display(Name = "Телефон(мобильный)")]
         public string PhoneMobile { get; set; }
 
-        [BindingProperty("FirstName")]
+        [BindingProperty("PhoneNumWorkOS")]
         [Display(Name = "Телефон(ОС)")]
         public string PhoneOS { get; set; }
 
-        [BindingProperty("FirstName")]
+        [BindingProperty("PhoneNumWorkGTS")]
         [Display(Name = "Телефон(рабочий городской)")]
         public string PhoneGTS { get; set; }
 
-        [BindingProperty("FirstName")]
+        [BindingProperty("Email")]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
         
         public HttpPostedFileBase ImgFile { get; set; }
-
-        [BindingProperty("FirstName")]
+        
         [Display(Name = "Звание")]
         [FillList(typeof(MilitaryDegree),"DegreeName")]
         public SelectList UserDegree { get; set; }
 
+        [BindingProperty("DegreeID")]
         public int SelectedDegreeID { get; set; }
         
         public Guid LoginID { get; set; }

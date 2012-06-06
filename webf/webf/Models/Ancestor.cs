@@ -89,17 +89,17 @@ namespace webf.Models
             {
                 localAttr =
                     (BindingPropertyAttribute)
-                    localProp.GetCustomAttributes(typeof(BindingPropertyAttribute), false).First();
+                    localProp.GetCustomAttributes(typeof(BindingPropertyAttribute), false).FirstOrDefault();
                 var currentEFProperty = modelTable.GetType().GetProperty(localAttr.ModelPropertyName);
 
-                var currObj = this.GetType().GetProperties()
-                                .FirstOrDefault(lo => ((BindingPropertyAttribute)lo
-                                .GetCustomAttributes(typeof(BindingPropertyAttribute), false)
-                                .FirstOrDefault()).ModelPropertyName == localAttr.ModelPropertyName);
+                /*var currObj = this.GetType().GetProperties()
+                                  .FirstOrDefault(lo => ((BindingPropertyAttribute)lo
+                                  .GetCustomAttributes(typeof(BindingPropertyAttribute), false)
+                                  .FirstOrDefault()).ModelPropertyName == localAttr.ModelPropertyName);*/
 
                 if (currentEFProperty != null)
                 {
-                    currObj.SetValue(this, currentEFProperty.GetValue(modelTable, null), null);
+                    localProp.SetValue(this, currentEFProperty.GetValue(modelTable, null), null);
                 }
                 else
                 {
@@ -115,7 +115,7 @@ namespace webf.Models
                             var relpObj = modelTable.GetType().GetProperty(property.Name).GetValue(modelTable, null);
                             var newData = relpObj.GetType().GetProperty(localAttr.ModelPropertyName).GetValue(relpObj, null);
 
-                            currObj.SetValue(this, newData, null);
+                            localProp.SetValue(this, newData, null);
                             break;
                         }
                     }
