@@ -1,0 +1,196 @@
+﻿@model webf.Models.EntityModel.RegForm
+@{
+    ViewBag.Title = "Процесс регистрации";
+}
+
+@*@section scripts
+{
+    @Content.Script("jquery.validate.min.js", Url)
+    @Content.Script("jquery.validate.unobtrusive.min.js", Url)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#BirthDate").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+
+            $('#ImgFile').change(function () {
+                var extension = this.files[0].name.split('.').pop().toLowerCase();
+                if ($.inArray(extension, ['jpg', 'jpeg']) == -1) {
+                    $("#ImgFile").val("");
+                    alert('Файл не являеться изображением нужного формата!');
+                }
+            });
+
+            /* .val().split('.').pop().toLowerCase();
+            if ($.inArray(ext, ['jpg', 'jpeg']) == -1) {
+            alert('invalid extension!');
+            }*/
+
+            $('#ImgFile').bind('change', function () {
+
+                var weight = this.files[0].size;
+                if (weight > 1000000) {
+                    $("#ImgFile").val("");
+                    alert("Размер изображения не должен превышать 1Мб!");
+                }
+
+            });
+
+        });
+        
+    </script>
+}*@
+<h2>
+    Регистрация нового пользователя</h2>
+    
+
+
+
+@using (Html.BeginForm("UserRegistrationBlank", "UiProfile",
+    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Бланк регистрации</legend>
+        <table class="tableCSS">
+            <tr>
+                <td>
+                    <p class="tblParagraph">
+                        Общая информация</p>
+                </td>
+                <td>
+                    <p class="tblParagraph">
+                        Контакты</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LastName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.LastName)
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.PhoneHomeNum)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.PhoneHomeNum)
+                        @Html.ValidationMessageFor(model => model.PhoneHomeNum)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.FirstName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.FirstName)
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.PhoneMobile)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.PhoneMobile)
+                        @Html.ValidationMessageFor(model => model.PhoneMobile)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ParentName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ParentName)
+                        @Html.ValidationMessageFor(model => model.ParentName)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.PhoneOS)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.PhoneOS)
+                        @Html.ValidationMessageFor(model => model.PhoneOS)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.UserDegree)
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(pr => pr.SelectedDegreeID, Model.UserDegree)
+                        @Html.ValidationMessageFor(model => model.UserDegree)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.PhoneGTS)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.PhoneGTS)
+                        @Html.ValidationMessageFor(model => model.PhoneGTS)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Post)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Post)
+                        @Html.ValidationMessageFor(model => model.Post)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Email)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.BirthDate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.BirthDate)
+                        @Html.ValidationMessageFor(model => model.BirthDate)
+                    </div>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+        @Html.HiddenFor(mod => mod.LoginID)
+        @Html.HiddenFor(mod => mod.KeyRingId)
+        <div class="InpImageCls">
+            <p class="tblParagraph">
+                Фотография пользователя (только JPG, JPEG формат).<br />
+                Размер не должен превышать 1Мбайт</p>
+            <input type="file" id="ImgFile" name="ImgFile" />
+        </div>
+        <p>
+            <input type="submit" value="Создать" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

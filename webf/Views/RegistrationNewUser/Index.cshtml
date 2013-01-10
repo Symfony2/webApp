@@ -1,0 +1,30 @@
+﻿
+
+@model List<webf.Models.EntityModel.Users_page_Results>
+           
+@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts
+{
+    @Content.Script("jquery.validate.min.js", Url)
+    @Content.Script("jquery.validate.unobtrusive.min.js", Url)
+    
+}
+<h2>
+    Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+
+@Ajax.NavigatorUserHelper((int)ViewBag.UsersAmount, (int)ViewBag.RowsPerPage, (int)ViewBag.CurrentPage, "Nav", "RegistrationNewUser")
+
+<div id="ajaxDiv">
+    @Html.Partial("Partials/ListTable")
+</div>
+
+
+

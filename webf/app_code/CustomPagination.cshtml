@@ -1,0 +1,106 @@
+﻿@using System.Web.Mvc
+
+
+@helper makeAjaxPaginationBox(int PageQuantity,           //колличество страниц 
+                              int FramesAmount,            //количество кадров
+                              UrlHelper url
+                                  )
+    {
+        
+
+    
+    <script type="text/javascript">
+        alert("ghj");
+        $(document).ready(function () {
+            var per = 1;
+            var pageBoxes = createPage(PageQuantity, per);
+            var prevBlock = $('#PageDiv #prevblock');
+            var nextBlock = $('#PageDiv #nextblock');
+
+        
+            nextBlock.click(function (e) {
+
+                $('#innerPage li').each(function () {
+                    $(this).remove();
+                });
+                e.preventDefault();
+
+
+                if (per != FramesAmount)
+                    per++;
+
+                pageBoxes = createPage(PageQuantity, per);
+                initBoxes(per, FramesAmount, '#PageDiv #innerPage', pageBoxes, prevBlock, nextBlock);
+
+            });
+            prevBlock.click(function (e) {
+                $('#innerPage li').each(function () {
+                    $(this).remove();
+                });
+                e.preventDefault();
+
+                if (per != 1)
+                    per--;
+
+                pageBoxes = createPage(PageQuantity, per);
+                initBoxes(per, FramesAmount, '#PageDiv #innerPage', pageBoxes, prevBlock, nextBlock);
+            });
+
+
+
+            initBoxes(per, FramesAmount, '#PageDiv #innerPage', pageBoxes, prevBlock, nextBlock);
+
+
+        });
+
+        function initBoxes(increment, totalFrameAmount, div_iden, strings, prev, next) {
+
+            $(div_iden).append(strings);
+
+            if (totalFrameAmount <= increment)
+                next.fadeOut();
+            else
+                next.fadeIn();
+            if (increment <= 1)
+                prev.fadeOut();
+            else
+                prev.fadeIn();
+        }
+
+        function createPage(amountOfPages, currentFrame) {
+
+            var str = "";
+            var lenghtOfFrame = 10;
+            if (amountOfPages > currentFrame * lenghtOfFrame) {
+
+                for (var i = (currentFrame - 1) * lenghtOfFrame; i < currentFrame * lenghtOfFrame; i++) {
+
+                    if (i == 0)
+                        str += "<li  class=\"active\">" + (i + 1) + "</li>";
+                    else
+                        str += "<li><a id=\"page\" onclick='clickMe(" + (i + 1) + ")'>" + (i + 1) + "</a></li>";
+                }
+            }
+            else {
+                for (var i = (currentFrame - 1) * lenghtOfFrame; i < amountOfPages; i++) {
+
+                    if (i == 0)
+                        str += "<li  class=\"active\">" + (i + 1) + "</li>";
+                    else
+                        str += "<li><a id=\"page\" onclick='clickMe(" + (i + 1) + ")'>" + (i + 1) + "</a></li>";
+                }
+            }
+
+            return str;
+        }
+    </script>
+    
+    <div id="PageDiv">
+        <ul id="pagination-digg">
+            <li class="previous"><a id="prevblock" href="">«Пред-я</a></li>
+            <div id="innerPage">
+            </div>
+            <li class="next"><a id="nextblock" href="">След-я »</a></li>
+        </ul>
+    </div>
+}

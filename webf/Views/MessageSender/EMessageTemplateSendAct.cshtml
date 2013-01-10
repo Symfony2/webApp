@@ -1,0 +1,53 @@
+﻿@model webf.Models.EMsgModel.EMsgSender
+@{
+    ViewBag.Title = "ЭП сообщение";
+}
+@section scripts
+{
+    @Content.Script("jquery.validate.min.js", Url)
+    @Content.Script("jquery.validate.unobtrusive.min.js", Url)
+    
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                var fileSize = 0;
+
+                $('#signedFileToSend').change(function () {
+                    fileSize = this.files[0].size;
+                });
+
+                $('#SubmitBtn').click(function (event) {
+
+                    if (fileSize > 10 * 1024 * 1024) {
+
+                        alert("Размер файла превысил 10Мб!");
+                        event.preventDefault();
+                    }
+                });
+
+            }
+        );
+    </script>
+}
+<h2>
+    Страничка отправки электронного сообщения</h2>
+@using (Html.BeginForm("EMessageTemplateSendAct", "MessageSender", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Бланк отпраки сообщений</legend>
+        <br />
+        <br />
+        <div class="editor-label">
+            @Html.LabelFor(x => x.EMsgTmpFile)
+        </div>
+        <div class="editor-field">
+            <input id="signedFileToSend" name="EMsgTmpFile" type="file" />
+            @Html.ValidationMessageFor(x => x.EMsgTmpFile)
+        </div>
+        <br />
+        <br />
+        <input id="SubmitBtn" type="submit" value="Отправить" />
+    </fieldset>
+}

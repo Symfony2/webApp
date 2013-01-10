@@ -1,0 +1,57 @@
+C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\bin\webf.dll
+C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\bin\webf.pdb
+C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\bin\EntityFramework.dll
+C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\bin\EntityFramework.xml
+C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\obj\Debug\webf.dll
+C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\obj\Debug\webf.pdb
+C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\obj\Debug\webf.Properties.Resources.resources
+C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Symfony\Desktop\Documents\Visual Studio 2010\Projects\Core\webf\webf\obj\Debug\webf.App_GlobalResources.ErrorStrings.resources
+D:\repo\webf\webf\webf\bin\webf.dll
+D:\repo\webf\webf\webf\bin\webf.pdb
+D:\repo\webf\webf\webf\obj\Debug\ResolveAssemblyReference.cache
+D:\repo\webf\webf\webf\obj\Debug\webf.App_GlobalResources.ErrorStrings.resources
+D:\repo\webf\webf\webf\obj\Debug\webf.Properties.Resources.resources
+D:\repo\webf\webf\webf\obj\Debug\GenerateResource.read.1.tlog
+D:\repo\webf\webf\webf\obj\Debug\GenerateResource.write.1.tlog
+D:\repo\webf\webf\webf\obj\Debug\webf.dll
+D:\repo\webf\webf\webf\obj\Debug\webf.pdb
+E:\repo\webf\webf\bin\webf.dll
+E:\repo\webf\webf\bin\webf.pdb
+E:\repo\webf\webf\bin\EntityFramework.dll
+E:\repo\webf\webf\bin\EntityFramework.xml
+E:\repo\webf\webf\obj\Debug\ResolveAssemblyReference.cache
+E:\repo\webf\webf\obj\Debug\webf.App_GlobalResources.ErrorStrings.resources
+E:\repo\webf\webf\obj\Debug\webf.Properties.Resources.resources
+E:\repo\webf\webf\obj\Debug\GenerateResource.read.1.tlog
+E:\repo\webf\webf\obj\Debug\GenerateResource.write.1.tlog
+E:\repo\webf\webf\obj\Debug\webf.dll
+E:\repo\webf\webf\obj\Debug\webf.pdb
+D:\repo\webf\webf\bin\webf.dll
+D:\repo\webf\webf\bin\webf.pdb
+D:\repo\webf\webf\obj\Debug\webf.App_GlobalResources.ErrorStrings.resources
+D:\repo\webf\webf\obj\Debug\webf.Properties.Resources.resources
+D:\repo\webf\webf\obj\Debug\webf.dll
+D:\repo\webf\webf\obj\Debug\webf.pdb
+D:\repo\webf\webf\bin\Atlas.dll
+D:\repo\webf\webf\bin\WordProc.dll
+D:\repo\webf\webf\bin\EDocBundle.dll
+D:\repo\webf\webf\bin\Atlas.pdb
+D:\repo\webf\webf\bin\WordProc.pdb
+D:\repo\webf\webf\bin\EDocBundle.pdb
+D:\repo\webf\webf\bin\OpenPGPzzz.dll
+D:\repo\webf\webf\bin\crypto.dll
+D:\repo\webf\webf\bin\OpenPGPzzz.pdb
+D:\repo\webf\webf\bin\EntityFramework.dll
+D:\repo\webf\webf\bin\RemoteService.dll
+D:\repo\webf\webf\bin\nunit.core.dll
+D:\repo\webf\webf\bin\nunit.framework.dll
+D:\repo\webf\webf\bin\nunit.core.interfaces.dll
+D:\repo\webf\webf\bin\RemoteService.pdb
+D:\repo\webf\webf\bin\EntityFramework.xml
+D:\repo\webf\webf\bin\crypto.pdb
+D:\repo\webf\webf\bin\crypto.xml
+D:\repo\webf\webf\obj\Debug\webf.csprojResolveAssemblyReference.cache
+D:\repo\webf\webf\obj\Debug\webf.csproj.GenerateResource.Cache

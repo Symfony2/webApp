@@ -1,0 +1,5 @@
+﻿
+@for(int i=ViewBag.StartNum;i<ViewBag.PageCount;i++)
+{
+    Ajax.ActionLink(i.ToString(), "Index","RegistrationNewUser", new {PageNum = i}, new AjaxOptions {UpdateTargetId = "innerPage"});
+}

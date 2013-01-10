@@ -1,0 +1,98 @@
+﻿@model webf.Models.EntityModel.UserProfile
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>UserProfile</legend>
+
+    <div class="display-label">LastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">FirstName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">ParentName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ParentName)
+    </div>
+
+    <div class="display-label">MilitaryDegree</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MilitaryDegree.DegreeName)
+    </div>
+
+    <div class="display-label">DateOfBirth</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfBirth)
+    </div>
+
+    <div class="display-label">aspnet_Users</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.aspnet_Users.UserName)
+    </div>
+
+    <div class="display-label">KeyTable</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KeyTable.HostIdentity)
+    </div>
+
+    <div class="display-label">UserProfile2</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserProfile2.LastName)
+    </div>
+
+    <div class="display-label">Posts</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Posts.PostName)
+    </div>
+
+    <div class="display-label">WorkArea</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WorkArea.WA_Name)
+    </div>
+
+    <div class="display-label">Region</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Region.RegionName)
+    </div>
+
+    <div class="display-label">PhoneNumHome</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneNumHome)
+    </div>
+
+    <div class="display-label">PhoneNumMobile</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneNumMobile)
+    </div>
+
+    <div class="display-label">PhoneNumWorkOS</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneNumWorkOS)
+    </div>
+
+    <div class="display-label">PhoneNumWorkGTS</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneNumWorkGTS)
+    </div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

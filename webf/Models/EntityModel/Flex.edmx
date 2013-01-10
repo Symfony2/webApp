@@ -1,0 +1,797 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FlexDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="FlexDBModelStoreContainer">
+          <EntitySet Name="aspnet_Roles" EntityType="FlexDBModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Users" EntityType="FlexDBModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="FlexDBModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KeyTable" EntityType="FlexDBModel.Store.KeyTable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MilitaryDegree" EntityType="FlexDBModel.Store.MilitaryDegree" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Posts" EntityType="FlexDBModel.Store.Posts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Region" EntityType="FlexDBModel.Store.Region" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SignableRoles" EntityType="FlexDBModel.Store.SignableRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfile" EntityType="FlexDBModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WorkArea" EntityType="FlexDBModel.Store.WorkArea" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__aspnet_Us__RoleI__628FA481" Association="FlexDBModel.Store.FK__aspnet_Us__RoleI__628FA481">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__UserI__619B8048" Association="FlexDBModel.Store.FK__aspnet_Us__UserI__619B8048">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SignableRoles_aspnet_Roles" Association="FlexDBModel.Store.FK_SignableRoles_aspnet_Roles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="SignableRoles" EntitySet="SignableRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_aspnet_Users" Association="FlexDBModel.Store.FK_UserProfile_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_KeyTable" Association="FlexDBModel.Store.FK_UserProfile_KeyTable">
+            <End Role="KeyTable" EntitySet="KeyTable" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_MilitaryDegree" Association="FlexDBModel.Store.FK_UserProfile_MilitaryDegree">
+            <End Role="MilitaryDegree" EntitySet="MilitaryDegree" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_Posts" Association="FlexDBModel.Store.FK_UserProfile_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_UserProfile" Association="FlexDBModel.Store.FK_UserProfile_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserProfile1" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_WorkArea" Association="FlexDBModel.Store.FK_UserProfile_WorkArea">
+            <End Role="WorkArea" EntitySet="WorkArea" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkArea_Region" Association="FlexDBModel.Store.FK_WorkArea_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="WorkArea" EntitySet="WorkArea" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KeyTable">
+          <Key>
+            <PropertyRef Name="TableID" />
+          </Key>
+          <Property Name="HostIdentity" Type="nvarchar" MaxLength="100" />
+          <Property Name="FingerPrint" Type="bigint" />
+          <Property Name="GenerationTime" Type="datetime" />
+          <Property Name="ExpirationTime" Type="datetime" />
+          <Property Name="PublicKeyBody" Type="varbinary(max)" />
+          <Property Name="TableID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MilitaryDegree">
+          <Key>
+            <PropertyRef Name="DegreeID" />
+          </Key>
+          <Property Name="DegreeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DegreeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="Post_ID" />
+          </Key>
+          <Property Name="Post_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostName" Type="nchar" MaxLength="150" />
+          <Property Name="PostDescription" Type="text" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionID" />
+          </Key>
+          <Property Name="RegionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RegionName" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SignableRoles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CanSign" Type="bit" />
+          <Property Name="RoleID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserProfileID" />
+          </Key>
+          <Property Name="UserProfileID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="150" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ParentName" Type="nvarchar" MaxLength="150" />
+          <Property Name="DegreeID" Type="int" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="LoginID" Type="uniqueidentifier" />
+          <Property Name="ObeysTo" Type="uniqueidentifier" />
+          <Property Name="Post_ID" Type="uniqueidentifier" />
+          <Property Name="WorkArea_ID" Type="uniqueidentifier" />
+          <Property Name="PhoneNumHome" Type="nvarchar" MaxLength="70" />
+          <Property Name="PhoneNumMobile" Type="nvarchar" MaxLength="70" />
+          <Property Name="PhoneNumWorkOS" Type="nvarchar" MaxLength="70" />
+          <Property Name="PhoneNumWorkGTS" Type="nvarchar" MaxLength="70" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="KeyID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="WorkArea">
+          <Key>
+            <PropertyRef Name="WorkArea_Id" />
+          </Key>
+          <Property Name="WorkArea_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WA_Name" Type="nchar" MaxLength="150" />
+          <Property Name="Description" Type="text" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="DirectionIndex" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__aspnet_Us__RoleI__628FA481">
+          <End Role="aspnet_Roles" Type="FlexDBModel.Store.aspnet_Roles" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="FlexDBModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__UserI__619B8048">
+          <End Role="aspnet_Users" Type="FlexDBModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="FlexDBModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SignableRoles_aspnet_Roles">
+          <End Role="aspnet_Roles" Type="FlexDBModel.Store.aspnet_Roles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SignableRoles" Type="FlexDBModel.Store.SignableRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="SignableRoles">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_aspnet_Users">
+          <End Role="aspnet_Users" Type="FlexDBModel.Store.aspnet_Users" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_KeyTable">
+          <End Role="KeyTable" Type="FlexDBModel.Store.KeyTable" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KeyTable">
+              <PropertyRef Name="TableID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="KeyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_MilitaryDegree">
+          <End Role="MilitaryDegree" Type="FlexDBModel.Store.MilitaryDegree" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MilitaryDegree">
+              <PropertyRef Name="DegreeID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="DegreeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_Posts">
+          <End Role="Posts" Type="FlexDBModel.Store.Posts" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="Post_ID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="Post_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_UserProfile">
+          <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="0..1" />
+          <End Role="UserProfile1" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="UserProfile1">
+              <PropertyRef Name="ObeysTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_WorkArea">
+          <End Role="WorkArea" Type="FlexDBModel.Store.WorkArea" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="FlexDBModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkArea">
+              <PropertyRef Name="WorkArea_Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="WorkArea_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkArea_Region">
+          <End Role="Region" Type="FlexDBModel.Store.Region" Multiplicity="0..1" />
+          <End Role="WorkArea" Type="FlexDBModel.Store.WorkArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionID" />
+            </Principal>
+            <Dependent Role="WorkArea">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="PersonsWhithSignRights" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="users_page" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Page" Type="int" Mode="In" />
+          <Parameter Name="Size" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FlexDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="FlexDBEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="Users_page" ReturnType="Collection(FlexDBModel.Users_page_Results)">
+            <Parameter Name="Page" Mode="In" Type="Int32" />
+            <Parameter Name="Size" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="aspnet_Roles" EntityType="FlexDBModel.aspnet_Roles" />
+          <EntitySet Name="aspnet_Users" EntityType="FlexDBModel.aspnet_Users" />
+          <EntitySet Name="MilitaryDegree" EntityType="FlexDBModel.MilitaryDegree" />
+          <EntitySet Name="Posts" EntityType="FlexDBModel.Posts" />
+          <EntitySet Name="Region" EntityType="FlexDBModel.Region" />
+          <EntitySet Name="SignableRoles" EntityType="FlexDBModel.SignableRoles" />
+          <EntitySet Name="WorkArea" EntityType="FlexDBModel.WorkArea" />
+          <AssociationSet Name="FK_SignableRoles_aspnet_Roles" Association="FlexDBModel.FK_SignableRoles_aspnet_Roles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="SignableRoles" EntitySet="SignableRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkArea_Region" Association="FlexDBModel.FK_WorkArea_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="WorkArea" EntitySet="WorkArea" />
+          </AssociationSet>
+          <AssociationSet Name="aspnet_UsersInRoles" Association="FlexDBModel.aspnet_UsersInRoles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <FunctionImport Name="PersonsWhithSignRights" ReturnType="Collection(FlexDBModel.PersonsWhithSignRights_Result2)" />
+          <EntitySet Name="KeyTable" EntityType="FlexDBModel.KeyTable" />
+          <EntitySet Name="UserProfile" EntityType="FlexDBModel.UserProfile" />
+          <AssociationSet Name="FK_UserProfile_aspnet_Users" Association="FlexDBModel.FK_UserProfile_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_KeyTable" Association="FlexDBModel.FK_UserProfile_KeyTable">
+            <End Role="KeyTable" EntitySet="KeyTable" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_MilitaryDegree" Association="FlexDBModel.FK_UserProfile_MilitaryDegree">
+            <End Role="MilitaryDegree" EntitySet="MilitaryDegree" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_Posts" Association="FlexDBModel.FK_UserProfile_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_UserProfile" Association="FlexDBModel.FK_UserProfile_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserProfile1" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_WorkArea" Association="FlexDBModel.FK_UserProfile_WorkArea">
+            <End Role="WorkArea" EntitySet="WorkArea" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="Users_page_Result">
+          <Property Type="Int64" Name="RowNumber" Nullable="true" />
+          <Property Type="String" Name="FIO" Nullable="true" MaxLength="452" />
+          <Property Type="String" Name="DegreeName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="WorkArea" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Post" Nullable="false" MaxLength="150" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="Users_page_Results">
+          <Property Type="Int64" Name="RowNumber" Nullable="true" />
+          <Property Type="String" Name="FIO" Nullable="true" MaxLength="452" />
+          <Property Type="String" Name="DegreeName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="WorkArea" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Post" Nullable="false" MaxLength="150" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" Precision="23" />
+          <Property Type="Guid" Name="UserProfileID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="RoleId" Nullable="false" />
+          <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredRoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SignableRoles" Relationship="FlexDBModel.FK_SignableRoles_aspnet_Roles" FromRole="aspnet_Roles" ToRole="SignableRoles" />
+          <NavigationProperty Name="aspnet_Users" Relationship="FlexDBModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredUserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+          <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="FlexDBModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_aspnet_Users" FromRole="aspnet_Users" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="MilitaryDegree">
+          <Key>
+            <PropertyRef Name="DegreeID" />
+          </Key>
+          <Property Type="Int32" Name="DegreeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DegreeName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_MilitaryDegree" FromRole="MilitaryDegree" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="Post_ID" />
+          </Key>
+          <Property Type="Guid" Name="Post_ID" Nullable="false" />
+          <Property Type="String" Name="PostName" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="PostDescription" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_Posts" FromRole="Posts" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionID" />
+          </Key>
+          <Property Type="Int32" Name="RegionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RegionName" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="WorkArea" Relationship="FlexDBModel.FK_WorkArea_Region" FromRole="Region" ToRole="WorkArea" />
+        </EntityType>
+        <EntityType Name="SignableRoles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="CanSign" />
+          <Property Type="Guid" Name="RoleID" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="FlexDBModel.FK_SignableRoles_aspnet_Roles" FromRole="SignableRoles" ToRole="aspnet_Roles" />
+        </EntityType>
+        <EntityType Name="WorkArea">
+          <Key>
+            <PropertyRef Name="WorkArea_Id" />
+          </Key>
+          <Property Type="Guid" Name="WorkArea_Id" Nullable="false" />
+          <Property Type="String" Name="WA_Name" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="RegionID" />
+          <Property Type="String" Name="DirectionIndex" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Region" Relationship="FlexDBModel.FK_WorkArea_Region" FromRole="WorkArea" ToRole="Region" />
+          <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_WorkArea" FromRole="WorkArea" ToRole="UserProfile" />
+        </EntityType>
+        <Association Name="FK_SignableRoles_aspnet_Roles">
+          <End Type="FlexDBModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="0..1" />
+          <End Type="FlexDBModel.SignableRoles" Role="SignableRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="SignableRoles">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkArea_Region">
+          <End Type="FlexDBModel.Region" Role="Region" Multiplicity="0..1" />
+          <End Type="FlexDBModel.WorkArea" Role="WorkArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionID" />
+            </Principal>
+            <Dependent Role="WorkArea">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="aspnet_UsersInRoles">
+          <End Type="FlexDBModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+          <End Type="FlexDBModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="PersonsWhithSignRights_Result">
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="452" />
+        </ComplexType>
+        <ComplexType Name="PersonsWhithSignRights_Result1">
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="452" />
+          <Property Type="Guid" Name="UserID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="PersonsWhithSignRights_Result2">
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="452" />
+          <Property Type="Guid" Name="UserID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="KeyTable">
+          <Key>
+            <PropertyRef Name="TableID" />
+          </Key>
+          <Property Type="String" Name="HostIdentity" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="FingerPrint" />
+          <Property Type="DateTime" Name="GenerationTime" />
+          <Property Type="DateTime" Name="ExpirationTime" />
+          <Property Type="Binary" Name="PublicKeyBody" MaxLength="Max" FixedLength="false" />
+          <Property Type="Guid" Name="TableID" Nullable="false" />
+          <NavigationProperty Name="UserProfile" Relationship="FlexDBModel.FK_UserProfile_KeyTable" FromRole="KeyTable" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserProfileID" />
+          </Key>
+          <Property Type="Guid" Name="UserProfileID" Nullable="false" />
+          <Property Type="String" Name="LastName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ParentName" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="DegreeID" />
+          <Property Type="DateTime" Name="DateOfBirth" />
+          <Property Type="Binary" Name="Photo" MaxLength="Max" FixedLength="false" />
+          <Property Type="Guid" Name="LoginID" />
+          <Property Type="Guid" Name="ObeysTo" />
+          <Property Type="Guid" Name="Post_ID" />
+          <Property Type="Guid" Name="WorkArea_ID" />
+          <Property Type="String" Name="PhoneNumHome" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumMobile" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumWorkOS" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumWorkGTS" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="KeyID" />
+          <NavigationProperty Name="aspnet_Users" Relationship="FlexDBModel.FK_UserProfile_aspnet_Users" FromRole="UserProfile" ToRole="aspnet_Users" />
+          <NavigationProperty Name="KeyTable" Relationship="FlexDBModel.FK_UserProfile_KeyTable" FromRole="UserProfile" ToRole="KeyTable" />
+          <NavigationProperty Name="MilitaryDegree" Relationship="FlexDBModel.FK_UserProfile_MilitaryDegree" FromRole="UserProfile" ToRole="MilitaryDegree" />
+          <NavigationProperty Name="Posts" Relationship="FlexDBModel.FK_UserProfile_Posts" FromRole="UserProfile" ToRole="Posts" />
+          <NavigationProperty Name="UserProfile1" Relationship="FlexDBModel.FK_UserProfile_UserProfile" FromRole="UserProfile" ToRole="UserProfile1" />
+          <NavigationProperty Name="UserProfile2" Relationship="FlexDBModel.FK_UserProfile_UserProfile" FromRole="UserProfile1" ToRole="UserProfile" />
+          <NavigationProperty Name="WorkArea" Relationship="FlexDBModel.FK_UserProfile_WorkArea" FromRole="UserProfile" ToRole="WorkArea" />
+        </EntityType>
+        <Association Name="FK_UserProfile_aspnet_Users">
+          <End Type="FlexDBModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
+          <End Type="FlexDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_KeyTable">
+          <End Type="FlexDBModel.KeyTable" Role="KeyTable" Multiplicity="0..1" />
+          <End Type="FlexDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KeyTable">
+              <PropertyRef Name="TableID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="KeyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_MilitaryDegree">
+          <End Type="FlexDBModel.MilitaryDegree" Role="MilitaryDegree" Multiplicity="0..1" />
+          <End Type="FlexDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MilitaryDegree">
+              <PropertyRef Name="DegreeID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="DegreeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_Posts">
+          <End Type="FlexDBModel.Posts" Role="Posts" Multiplicity="0..1" />
+          <End Type="FlexDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="Post_ID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="Post_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_UserProfile">
+          <End Type="FlexDBModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+          <End Type="FlexDBModel.UserProfile" Role="UserProfile1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserProfileID" />
+            </Principal>
+            <Dependent Role="UserProfile1">
+              <PropertyRef Name="ObeysTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_WorkArea">
+          <End Type="FlexDBModel.WorkArea" Role="WorkArea" Multiplicity="0..1" />
+          <End Type="FlexDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkArea">
+              <PropertyRef Name="WorkArea_Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="WorkArea_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FlexDBModelStoreContainer" CdmEntityContainer="FlexDBEntities">
+          <FunctionImportMapping FunctionImportName="Users_page" FunctionName="FlexDBModel.Store.users_page">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FlexDBModel.Users_page_Results">
+                <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="DegreeName" ColumnName="DegreeName" />
+                <ScalarProperty Name="WorkArea" ColumnName="WorkArea" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="FlexDBModel.aspnet_Roles">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="FlexDBModel.aspnet_Users">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MilitaryDegree">
+            <EntityTypeMapping TypeName="FlexDBModel.MilitaryDegree">
+              <MappingFragment StoreEntitySet="MilitaryDegree">
+                <ScalarProperty Name="DegreeName" ColumnName="DegreeName" />
+                <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="FlexDBModel.Posts">
+              <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="PostDescription" ColumnName="PostDescription" />
+                <ScalarProperty Name="PostName" ColumnName="PostName" />
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Region">
+            <EntityTypeMapping TypeName="FlexDBModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SignableRoles">
+            <EntityTypeMapping TypeName="FlexDBModel.SignableRoles">
+              <MappingFragment StoreEntitySet="SignableRoles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="CanSign" ColumnName="CanSign" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkArea">
+            <EntityTypeMapping TypeName="FlexDBModel.WorkArea">
+              <MappingFragment StoreEntitySet="WorkArea">
+                <ScalarProperty Name="DirectionIndex" ColumnName="DirectionIndex" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="WA_Name" ColumnName="WA_Name" />
+                <ScalarProperty Name="WorkArea_Id" ColumnName="WorkArea_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="FlexDBModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="PersonsWhithSignRights" FunctionName="FlexDBModel.Store.PersonsWhithSignRights">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FlexDBModel.PersonsWhithSignRights_Result2">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="KeyTable">
+            <EntityTypeMapping TypeName="FlexDBModel.KeyTable">
+              <MappingFragment StoreEntitySet="KeyTable">
+                <ScalarProperty Name="TableID" ColumnName="TableID" />
+                <ScalarProperty Name="PublicKeyBody" ColumnName="PublicKeyBody" />
+                <ScalarProperty Name="ExpirationTime" ColumnName="ExpirationTime" />
+                <ScalarProperty Name="GenerationTime" ColumnName="GenerationTime" />
+                <ScalarProperty Name="FingerPrint" ColumnName="FingerPrint" />
+                <ScalarProperty Name="HostIdentity" ColumnName="HostIdentity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfile">
+            <EntityTypeMapping TypeName="FlexDBModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="KeyID" ColumnName="KeyID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumWorkGTS" ColumnName="PhoneNumWorkGTS" />
+                <ScalarProperty Name="PhoneNumWorkOS" ColumnName="PhoneNumWorkOS" />
+                <ScalarProperty Name="PhoneNumMobile" ColumnName="PhoneNumMobile" />
+                <ScalarProperty Name="PhoneNumHome" ColumnName="PhoneNumHome" />
+                <ScalarProperty Name="WorkArea_ID" ColumnName="WorkArea_ID" />
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+                <ScalarProperty Name="ObeysTo" ColumnName="ObeysTo" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
+                <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Flex">
+        <EntityTypeShape EntityType="FlexDBModel.aspnet_Roles" Width="1.5" PointX="4.125" PointY="1.875" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="FlexDBModel.aspnet_Users" Width="1.5" PointX="6.625" PointY="1.25" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="FlexDBModel.MilitaryDegree" Width="1.5" PointX="4.125" PointY="7.625" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="FlexDBModel.Posts" Width="1.5" PointX="9.375" PointY="7.625" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="FlexDBModel.Region" Width="1.5" PointX="8.625" PointY="5.625" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="FlexDBModel.SignableRoles" Width="1.5" PointX="1.875" PointY="2.25" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="FlexDBModel.WorkArea" Width="1.5" PointX="10.75" PointY="4.875" Height="2.3648893229166674" />
+        <AssociationConnector Association="FlexDBModel.FK_SignableRoles_aspnet_Roles" >
+          <ConnectorPoint PointX="4.125" PointY="3.1439925130208337" />
+          <ConnectorPoint PointX="3.375" PointY="3.1439925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.FK_WorkArea_Region" >
+          <ConnectorPoint PointX="10.125" PointY="6.4228417968750016" />
+          <ConnectorPoint PointX="10.75" PointY="6.4228417968750016" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.aspnet_UsersInRoles" >
+          <ConnectorPoint PointX="5.625" PointY="2.93724609375" />
+          <ConnectorPoint PointX="6.625" PointY="2.93724609375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="FlexDBModel.KeyTable" Width="1.5" PointX="4" PointY="4.875" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="FlexDBModel.UserProfile" Width="1.5" PointX="6.5" PointY="4.625" Height="5.634013671875004" />
+        <AssociationConnector Association="FlexDBModel.FK_UserProfile_aspnet_Users" >
+          <ConnectorPoint PointX="7.3125" PointY="3.9994921874999996" />
+          <ConnectorPoint PointX="7.3125" PointY="4.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.FK_UserProfile_KeyTable" >
+          <ConnectorPoint PointX="5.5" PointY="6.0574446614583337" />
+          <ConnectorPoint PointX="6.5" PointY="6.0574446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.FK_UserProfile_MilitaryDegree" >
+          <ConnectorPoint PointX="5.625" PointY="8.422841796875" />
+          <ConnectorPoint PointX="6.5" PointY="8.422841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.FK_UserProfile_Posts" >
+          <ConnectorPoint PointX="9.375" PointY="8.5189925130208337" />
+          <ConnectorPoint PointX="8" PointY="8.5189925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.FK_UserProfile_UserProfile" >
+          <ConnectorPoint PointX="7.0319230769230767" PointY="10.259013671875003" />
+          <ConnectorPoint PointX="7.0319230769230767" PointY="10.509013671875003" />
+          <ConnectorPoint PointX="7.4784615384615378" PointY="10.509013671875003" />
+          <ConnectorPoint PointX="7.4784615384615378" PointY="10.259013671875003" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlexDBModel.FK_UserProfile_WorkArea" >
+          <ConnectorPoint PointX="10.75" PointY="5.21875" />
+          <ConnectorPoint PointX="8" PointY="5.21875" />
+        </AssociationConnector>
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

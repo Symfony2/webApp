@@ -1,0 +1,54 @@
+﻿@model List<webf.Models.EntityModel.Users_page_Results>
+           
+<table>
+    <tr>
+        <th>
+            №
+        </th>
+        <th>
+            ФИО
+        </th>
+        <th>
+            Звание
+        </th>
+        <th>
+            Должность
+        </th>
+        <th>
+            Направление
+        </th>
+        <th>
+            Дата рождения
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RowNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DegreeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Post)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkArea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UserProfileID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UserProfileID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserProfileID })
+            </td>
+        </tr>
+    }
+</table>

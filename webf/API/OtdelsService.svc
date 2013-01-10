@@ -1,0 +1,6 @@
+﻿<%@ ServiceHost Language="C#"
+ Debug="true"
+ Service="webf.API.OtdelsService"
+ CodeBehind="OtdelsService.svc.cs"
+ Factory="System.ServiceModel.Activation.WebServiceHostFactory"  
+   %>
