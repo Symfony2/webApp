@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webf", "webf\webf.csproj", "{8889478C-1D9A-4DCD-ADBD-DA8E01286F64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteService", "RemoteService\RemoteService.csproj", "{74811B9C-FC6A-4F18-AAC8-9F495D67A65B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8889478C-1D9A-4DCD-ADBD-DA8E01286F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8889478C-1D9A-4DCD-ADBD-DA8E01286F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8889478C-1D9A-4DCD-ADBD-DA8E01286F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8889478C-1D9A-4DCD-ADBD-DA8E01286F64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74811B9C-FC6A-4F18-AAC8-9F495D67A65B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74811B9C-FC6A-4F18-AAC8-9F495D67A65B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74811B9C-FC6A-4F18-AAC8-9F495D67A65B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74811B9C-FC6A-4F18-AAC8-9F495D67A65B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

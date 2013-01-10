@@ -1,0 +1,4 @@
+D:\repo\webf\RemoteService\bin\Debug\RemoteService.dll
+D:\repo\webf\RemoteService\bin\Debug\RemoteService.pdb
+D:\repo\webf\RemoteService\obj\Debug\RemoteService.dll
+D:\repo\webf\RemoteService\obj\Debug\RemoteService.pdb
